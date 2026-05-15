@@ -1,0 +1,61 @@
+{
+  "existing": {
+    "pokemon": {
+      "POKEMON00": {
+        "available_form": [],
+        "file_size": "s6f",
+        "form": "s70",
+        "generation": "s71",
+        "id": "POKEMON00",
+        "model_format": "s73",
+        "model_url": "s74",
+        "name": "s75",
+        "texture_url": "s76",
+        "thumbnail_url": "s77",
+        "type": []
+      },
+      "POKEMON01": {
+        "available_form": [],
+        "file_size": "sdd",
+        "form": "sde",
+        "generation": "sdf",
+        "id": "POKEMON01",
+        "model_format": "se1",
+        "model_url": "se2",
+        "name": "se3",
+        "texture_url": "se4",
+        "thumbnail_url": "se5",
+        "type": []
+      },
+      "POKEMON02": {
+        "available_form": [],
+        "file_size": "s14b",
+        "form": "s14c",
+        "generation": "s14d",
+        "id": "POKEMON02",
+        "model_format": "s14f",
+        "model_url": "s150",
+        "name": "s151",
+        "texture_url": "s152",
+        "thumbnail_url": "s153",
+        "type": []
+      }
+    }
+  },
+  "new": {
+    "pokemon": {
+      "pokemon_ref01": {
+        "available_form": [],
+        "file_size": "s1b9",
+        "form": "s1ba",
+        "generation": "s1bb",
+        "model_format": "s1bd",
+        "model_url": "s1be",
+        "name": "s1bf",
+        "texture_url": "s1c0",
+        "thumbnail_url": "s1c1",
+        "type": []
+      }
+    }
+  }
+}

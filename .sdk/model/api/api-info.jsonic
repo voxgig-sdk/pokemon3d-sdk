@@ -1,0 +1,23 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://documenter.getpostman.com/view/29725199/2sAYX8KMU8"
+      }
+      description: "The Pokemon3D API provides access to 3D models of Pokémon, enabling developers to easily integrate and display interactive Pokémon models within their applications. This API is specifically designed for use with the Pokemon3D project on GitHub, offering a variety of endpoints to retrieve 3D model data for different Pokémon forms, including regular, shiny, Alolan, and more."
+      servers: [
+        {
+          description: "Pokemon3D API Server"
+          url: "https://pokemon3d.io/api"
+        }
+      ]
+      title: "Pokemon3D API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

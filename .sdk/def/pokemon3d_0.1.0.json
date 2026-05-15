@@ -1,0 +1,257 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Pokemon3D API",
+    "description": "The Pokemon3D API provides access to 3D models of Pokémon, enabling developers to easily integrate and display interactive Pokémon models within their applications. This API is specifically designed for use with the Pokemon3D project on GitHub, offering a variety of endpoints to retrieve 3D model data for different Pokémon forms, including regular, shiny, Alolan, and more.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://documenter.getpostman.com/view/29725199/2sAYX8KMU8"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://pokemon3d.io/api",
+      "description": "Pokemon3D API Server"
+    }
+  ],
+  "paths": {
+    "/pokemons": {
+      "get": {
+        "summary": "Get all Pokémon",
+        "description": "Retrieves a list of all available Pokémon 3D models with their metadata and model URLs.",
+        "operationId": "getAllPokemons",
+        "tags": [
+          "Pokemons"
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limit the number of results returned",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 100
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Offset for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with list of Pokémon",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "integer",
+                      "description": "Total number of Pokémon available"
+                    },
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Pokemon"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/pokemons/{id}": {
+      "get": {
+        "summary": "Get Pokémon by ID",
+        "description": "Retrieves detailed 3D model information for a specific Pokémon by its ID or name. Supports various forms including regular, shiny, Alolan variants, and more.",
+        "operationId": "getPokemonById",
+        "tags": [
+          "Pokemons"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Pokémon ID or name (e.g., 25 or 'pikachu')",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "form",
+            "in": "query",
+            "description": "Specific form of the Pokémon (e.g., 'shiny', 'alolan', 'mega')",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "regular",
+                "shiny",
+                "alolan",
+                "galarian",
+                "mega",
+                "gigantamax"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with Pokémon details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PokemonDetail"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "404": {
+            "description": "Pokémon not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Pokemon": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Unique identifier for the Pokémon",
+            "example": 25
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the Pokémon",
+            "example": "pikachu"
+          },
+          "forms": {
+            "type": "array",
+            "description": "Available forms for this Pokémon",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "regular",
+              "shiny"
+            ]
+          },
+          "modelUrl": {
+            "type": "string",
+            "description": "URL to the 3D model file",
+            "format": "uri",
+            "example": "https://pokemon3d.io/models/pikachu.glb"
+          }
+        }
+      },
+      "PokemonDetail": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Unique identifier for the Pokémon",
+            "example": 25
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the Pokémon",
+            "example": "pikachu"
+          },
+          "form": {
+            "type": "string",
+            "description": "Current form of the Pokémon",
+            "example": "regular"
+          },
+          "modelUrl": {
+            "type": "string",
+            "description": "URL to the 3D model file (GLB/GLTF format)",
+            "format": "uri",
+            "example": "https://pokemon3d.io/models/pikachu.glb"
+          },
+          "textureUrl": {
+            "type": "string",
+            "description": "URL to the texture file",
+            "format": "uri",
+            "example": "https://pokemon3d.io/textures/pikachu.png"
+          },
+          "thumbnailUrl": {
+            "type": "string",
+            "description": "URL to the thumbnail image",
+            "format": "uri",
+            "example": "https://pokemon3d.io/thumbnails/pikachu.png"
+          },
+          "type": {
+            "type": "array",
+            "description": "Pokémon types",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "electric"
+            ]
+          },
+          "generation": {
+            "type": "integer",
+            "description": "Generation the Pokémon belongs to",
+            "example": 1
+          },
+          "availableForms": {
+            "type": "array",
+            "description": "All available forms for this Pokémon",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "regular",
+              "shiny",
+              "alolan"
+            ]
+          },
+          "modelFormat": {
+            "type": "string",
+            "description": "Format of the 3D model",
+            "example": "glb"
+          },
+          "fileSize": {
+            "type": "integer",
+            "description": "Size of the model file in bytes",
+            "example": 524288
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Pokemons",
+      "description": "Endpoints for retrieving Pokémon 3D model data"
+    }
+  ]
+}
