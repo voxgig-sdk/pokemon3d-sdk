@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/pokemon3d-sdk"
-	"github.com/voxgig-sdk/pokemon3d-sdk/core"
+	sdk "github.com/voxgig-sdk/pokemon3d-sdk/go"
+	"github.com/voxgig-sdk/pokemon3d-sdk/go/core"
 )
 
 func TestPokemonDirect(t *testing.T) {

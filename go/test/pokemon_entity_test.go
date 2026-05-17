@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/pokemon3d-sdk"
-	"github.com/voxgig-sdk/pokemon3d-sdk/core"
+	sdk "github.com/voxgig-sdk/pokemon3d-sdk/go"
+	"github.com/voxgig-sdk/pokemon3d-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/pokemon3d-sdk/go/utility/struct"
 )
 
 func TestPokemonEntity(t *testing.T) {

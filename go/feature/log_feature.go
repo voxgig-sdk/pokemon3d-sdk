@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/voxgig-sdk/pokemon3d-sdk/core"
+	"github.com/voxgig-sdk/pokemon3d-sdk/go/core"
 )
 
 type LogFeature struct {

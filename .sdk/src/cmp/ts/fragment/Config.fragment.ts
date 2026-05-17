@@ -29,7 +29,7 @@ class Config {
 
 
   options = {
-    base: 'https://pokemon3d.io/api',
+    base: '$$main.kit.info.servers.0.url$$',
 
     'AUTHBLOCK'headers: 'HEADERS',
 

@@ -1,10 +1,10 @@
 package voxgigpokemon3dsdk
 
 import (
-	"github.com/voxgig-sdk/pokemon3d-sdk/core"
-	"github.com/voxgig-sdk/pokemon3d-sdk/entity"
-	"github.com/voxgig-sdk/pokemon3d-sdk/feature"
-	_ "github.com/voxgig-sdk/pokemon3d-sdk/utility"
+	"github.com/voxgig-sdk/pokemon3d-sdk/go/core"
+	"github.com/voxgig-sdk/pokemon3d-sdk/go/entity"
+	"github.com/voxgig-sdk/pokemon3d-sdk/go/feature"
+	_ "github.com/voxgig-sdk/pokemon3d-sdk/go/utility"
 )
 
 // Type aliases preserve external API.
