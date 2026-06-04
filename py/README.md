@@ -23,12 +23,9 @@ loading a specific record.
 ### 1. Create a client
 
 ```python
-import os
 from pokemon3d_sdk import Pokemon3dSDK
 
-client = Pokemon3dSDK({
-    "apikey": os.environ.get("POKEMON3D_APIKEY"),
-})
+client = Pokemon3dSDK({})
 ```
 
 ### 2. List pokemons
@@ -130,7 +127,6 @@ Create a `.env.local` file at the project root:
 
 ```
 POKEMON3D_TEST_LIVE=TRUE
-POKEMON3D_APIKEY=<your-key>
 ```
 
 Then run:
@@ -154,7 +150,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `str` | API key for authentication. |
 | `base` | `str` | Base URL of the API server. |
 | `prefix` | `str` | URL path prefix prepended to all requests. |
 | `suffix` | `str` | URL path suffix appended to all requests. |

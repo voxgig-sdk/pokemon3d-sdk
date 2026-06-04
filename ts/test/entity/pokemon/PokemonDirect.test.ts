@@ -136,14 +136,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'POKEMON_D_TEST_POKEMON_ENTID': {},
     'POKEMON_D_TEST_LIVE': 'FALSE',
-    'POKEMON_D_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.POKEMON_D_TEST_LIVE
 
   if (live) {
     const client = new Pokemon3dSDK({
-      apikey: env.POKEMON_D_APIKEY,
     })
 
     let idmap: any = env['POKEMON_D_TEST_POKEMON_ENTID']

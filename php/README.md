@@ -20,9 +20,7 @@ loading a specific record.
 <?php
 require_once 'pokemon3d_sdk.php';
 
-$client = new Pokemon3dSDK([
-    "apikey" => getenv("POKEMON3D_APIKEY"),
-]);
+$client = new Pokemon3dSDK([]);
 ```
 
 ### 2. List pokemons
@@ -127,7 +125,6 @@ Create a `.env.local` file at the project root:
 
 ```
 POKEMON3D_TEST_LIVE=TRUE
-POKEMON3D_APIKEY=<your-key>
 ```
 
 Then run:
@@ -150,7 +147,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |

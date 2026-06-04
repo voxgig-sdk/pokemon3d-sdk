@@ -117,14 +117,12 @@ function pokemon_direct_setup(mockres)
   local env = runner.env_override({
     ["POKEMON_D_TEST_POKEMON_ENTID"] = {},
     ["POKEMON_D_TEST_LIVE"] = "FALSE",
-    ["POKEMON_D_APIKEY"] = "NONE",
   })
 
   local live = env["POKEMON_D_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["POKEMON_D_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

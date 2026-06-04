@@ -194,14 +194,12 @@ func pokemonDirectSetup(mockres any) *pokemonDirectSetupResult {
 	env := envOverride(map[string]any{
 		"POKEMON_D_TEST_POKEMON_ENTID": map[string]any{},
 		"POKEMON_D_TEST_LIVE":    "FALSE",
-		"POKEMON_D_APIKEY":       "NONE",
 	})
 
 	live := env["POKEMON_D_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["POKEMON_D_APIKEY"],
 		}
 		client := sdk.NewPokemon3dSDK(mergedOpts)
 

@@ -93,7 +93,6 @@ def pokemon_basic_setup(extra)
     "POKEMON_D_TEST_POKEMON_ENTID" => idmap,
     "POKEMON_D_TEST_LIVE" => "FALSE",
     "POKEMON_D_TEST_EXPLAIN" => "FALSE",
-    "POKEMON_D_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -105,7 +104,6 @@ def pokemon_basic_setup(extra)
   if env["POKEMON_D_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["POKEMON_D_APIKEY"],
       },
       extra || {},
     ])
