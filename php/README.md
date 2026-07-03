@@ -1,6 +1,11 @@
 # Pokemon3d PHP SDK
 
-The PHP SDK for the Pokemon3d API. Provides an entity-oriented interface using PHP conventions.
+
+
+The PHP SDK for the Pokemon3d API — an entity-oriented client using PHP conventions.
+
+> Other languages, the CLI, and MCP server live alongside this one — see
+> the [top-level README](../README.md).
 
 
 ## Install
@@ -20,13 +25,15 @@ loading a specific record.
 <?php
 require_once 'pokemon3d_sdk.php';
 
-$client = new Pokemon3dSDK([]);
+$client = new Pokemon3dSDK([
+    "apikey" => getenv("POKEMON3D_APIKEY"),
+]);
 ```
 
 ### 2. List pokemons
 
 ```php
-[$result, $err] = $client->Pokemon(null)->list(null, null);
+[$result, $err] = $client->Pokemon()->list();
 if ($err) { throw new \Exception($err); }
 
 if (is_array($result)) {
@@ -40,7 +47,7 @@ if (is_array($result)) {
 ### 3. Load a pokemon
 
 ```php
-[$result, $err] = $client->Pokemon(null)->load(["id" => "example_id"], null);
+[$result, $err] = $client->Pokemon()->load(["id" => "example_id"]);
 if ($err) { throw new \Exception($err); }
 print_r($result);
 ```
@@ -86,11 +93,9 @@ print_r($fetchdef["headers"]);
 Create a mock client for unit testing — no server required:
 
 ```php
-$client = Pokemon3dSDK::test(null, null);
+$client = Pokemon3dSDK::test();
 
-[$result, $err] = $client->Pokemon3d(null)->load(
-    ["id" => "test01"], null
-);
+[$result, $err] = $client->Pokemon3d()->load(["id" => "test01"]);
 // $result contains mock response data
 ```
 
@@ -125,6 +130,7 @@ Create a `.env.local` file at the project root:
 
 ```
 POKEMON3D_TEST_LIVE=TRUE
+POKEMON3D_APIKEY=<your-key>
 ```
 
 Then run:
@@ -147,6 +153,7 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
+| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |

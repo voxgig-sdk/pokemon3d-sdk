@@ -135,6 +135,7 @@ func pokemonBasicSetup(extra map[string]any) *entityTestSetup {
 		"POKEMON_D_TEST_POKEMON_ENTID": idmap,
 		"POKEMON_D_TEST_LIVE":      "FALSE",
 		"POKEMON_D_TEST_EXPLAIN":   "FALSE",
+		"POKEMON_D_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["POKEMON_D_TEST_POKEMON_ENTID"])
@@ -145,6 +146,7 @@ func pokemonBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["POKEMON_D_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["POKEMON_D_APIKEY"],
 			},
 			extra,
 		})

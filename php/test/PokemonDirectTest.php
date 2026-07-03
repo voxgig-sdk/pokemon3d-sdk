@@ -123,12 +123,14 @@ function pokemon_direct_setup($mockres)
     $env = Runner::env_override([
         "POKEMON_D_TEST_POKEMON_ENTID" => [],
         "POKEMON_D_TEST_LIVE" => "FALSE",
+        "POKEMON_D_APIKEY" => "NONE",
     ]);
 
     $live = $env["POKEMON_D_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
+            "apikey" => $env["POKEMON_D_APIKEY"],
         ];
         $client = new Pokemon3dSDK($merged_opts);
         return [

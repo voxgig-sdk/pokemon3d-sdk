@@ -1,20 +1,8 @@
 # Pokemon3d SDK
 
-Fetch 3D Pokemon models in GLB format for use with Three.js and other 3D engines
+Pokemon3D API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Pokemon3D API
-
-The Pokemon3D API is a community-driven service that exposes 3D Pokemon models in GLB format, intended as a drop-in alternative to traditional 2D sprite assets. The models are suitable for use with Three.js and other WebGL-based 3D engines.
-
-What you get from the API:
-
-- 3D Pokemon models served as downloadable GLB assets
-- Multiple variant forms where available (regular, shiny, and regional variants such as Alolan)
-- A simple HTTP interface for listing and retrieving models
-
-The service is publicly hosted and does not appear to require API keys for access. As a community project, availability and reliability can vary over time.
 
 ## Try it
 
@@ -48,29 +36,31 @@ gem install pokemon3d-sdk
 luarocks install pokemon3d-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { Pokemon3dSDK } from 'pokemon3d'
 
-const client = new Pokemon3dSDK({})
+const client = new Pokemon3dSDK({
+  apikey: process.env.POKEMON3D_APIKEY,
+})
 
 // List all pokemons
 const pokemons = await client.Pokemon().list()
+console.log(pokemons.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -100,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Pokemon** | Individual Pokemon entries paired with their 3D GLB model assets and variant forms. | `/pokemons` |
+| **Pokemon** |  | `/pokemons` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -110,17 +100,20 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from pokemon3d_sdk import Pokemon3dSDK
 
-client = Pokemon3dSDK({})
+client = Pokemon3dSDK({
+    "apikey": os.environ.get("POKEMON3D_APIKEY"),
+})
 
 # List all pokemons
-pokemons, err = client.Pokemon(None).list(None, None)
+pokemons, err = client.Pokemon().list()
+print(pokemons)
 
 # Load a specific pokemon
-pokemon, err = client.Pokemon(None).load(
-    {"id": "example_id"}, None
-)
+pokemon, err = client.Pokemon().load({"id": "example_id"})
+print(pokemon)
 ```
 
 ### PHP
@@ -129,15 +122,17 @@ pokemon, err = client.Pokemon(None).load(
 <?php
 require_once 'pokemon3d_sdk.php';
 
-$client = new Pokemon3dSDK([]);
+$client = new Pokemon3dSDK([
+    "apikey" => getenv("POKEMON3D_APIKEY"),
+]);
 
 // List all pokemons
-[$pokemons, $err] = $client->Pokemon(null)->list(null, null);
+[$pokemons, $err] = $client->Pokemon()->list();
+print_r($pokemons);
 
 // Load a specific pokemon
-[$pokemon, $err] = $client->Pokemon(null)->load(
-    ["id" => "example_id"], null
-);
+[$pokemon, $err] = $client->Pokemon()->load(["id" => "example_id"]);
+print_r($pokemon);
 ```
 
 ### Golang
@@ -145,10 +140,13 @@ $client = new Pokemon3dSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/pokemon3d-sdk/go"
 
-client := sdk.NewPokemon3dSDK(map[string]any{})
+client := sdk.NewPokemon3dSDK(map[string]any{
+    "apikey": os.Getenv("POKEMON3D_APIKEY"),
+})
 
 // List all pokemons
 pokemons, err := client.Pokemon(nil).List(nil, nil)
+fmt.Println(pokemons)
 ```
 
 ### Ruby
@@ -156,15 +154,17 @@ pokemons, err := client.Pokemon(nil).List(nil, nil)
 ```ruby
 require_relative "Pokemon3d_sdk"
 
-client = Pokemon3dSDK.new({})
+client = Pokemon3dSDK.new({
+  "apikey" => ENV["POKEMON3D_APIKEY"],
+})
 
 # List all pokemons
-pokemons, err = client.Pokemon(nil).list(nil, nil)
+pokemons, err = client.Pokemon().list
+puts pokemons
 
 # Load a specific pokemon
-pokemon, err = client.Pokemon(nil).load(
-  { "id" => "example_id" }, nil
-)
+pokemon, err = client.Pokemon().load({ "id" => "example_id" })
+puts pokemon
 ```
 
 ### Lua
@@ -172,15 +172,17 @@ pokemon, err = client.Pokemon(nil).load(
 ```lua
 local sdk = require("pokemon3d_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("POKEMON3D_APIKEY"),
+})
 
 -- List all pokemons
-local pokemons, err = client:Pokemon(nil):list(nil, nil)
+local pokemons, err = client:Pokemon():list()
+print(pokemons)
 
 -- Load a specific pokemon
-local pokemon, err = client:Pokemon(nil):load(
-  { id = "example_id" }, nil
-)
+local pokemon, err = client:Pokemon():load({ id = "example_id" })
+print(pokemon)
 ```
 
 ## Unit testing in offline mode
@@ -199,25 +201,21 @@ const result = await client.Pokemon().load({ id: 'test01' })
 ### Python
 
 ```python
-client = Pokemon3dSDK.test(None, None)
-result, err = client.Pokemon(None).load(
-    {"id": "test01"}, None
-)
+client = Pokemon3dSDK.test()
+result, err = client.Pokemon().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = Pokemon3dSDK::test(null, null);
-[$result, $err] = $client->Pokemon(null)->load(
-    ["id" => "test01"], null
-);
+$client = Pokemon3dSDK::test();
+[$result, $err] = $client->Pokemon()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Pokemon(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -226,19 +224,15 @@ result, err := client.Pokemon(nil).Load(
 ### Ruby
 
 ```ruby
-client = Pokemon3dSDK.test(nil, nil)
-result, err = client.Pokemon(nil).load(
-  { "id" => "test01" }, nil
-)
+client = Pokemon3dSDK.test
+result, err = client.Pokemon().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Pokemon(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Pokemon():load({ id = "test01" })
 ```
 
 ## How it works
@@ -342,11 +336,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Pokemon3D API
-
-- Upstream: [https://pokemon3d.io/api](https://pokemon3d.io/api)
-- API docs: [https://freepublicapis.com/pokemon3d-api](https://freepublicapis.com/pokemon3d-api)
 
 ---
 

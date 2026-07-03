@@ -16,22 +16,7 @@ main: {
       ]
       title: "Pokemon3D API"
       version: "1.0.0"
-      tagline: "Fetch 3D Pokemon models in GLB format for use with Three.js and other 3D engines"
-      homepage: "https://pokemon3d.io/api"
-      docs_url: "https://freepublicapis.com/pokemon3d-api"
-      about_md: `The Pokemon3D API is a community-driven service that exposes 3D Pokemon models in GLB format, intended as a drop-in alternative to traditional 2D sprite assets. The models are suitable for use with Three.js and other WebGL-based 3D engines.
-
-What you get from the API:
-
-- 3D Pokemon models served as downloadable GLB assets
-- Multiple variant forms where available (regular, shiny, and regional variants such as Alolan)
-- A simple HTTP interface for listing and retrieving models
-
-The service is publicly hosted and does not appear to require API keys for access. As a community project, availability and reliability can vary over time.`
-      entity_desc: {
-        pokemon: "Individual Pokemon entries paired with their 3D GLB model assets and variant forms."
-      }
-      auth: false
     }
   }
 }
+
