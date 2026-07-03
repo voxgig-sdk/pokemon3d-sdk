@@ -8,12 +8,14 @@ source = {
   dir = "pokemon3d-sdk/lua"
 }
 description = {
-  summary = "Pokemon3d SDK for Lua",
-  license = "MIT"
+  summary = "Unofficial generated Lua SDK for the Pokemon3D public API. Not affiliated with or endorsed by the upstream API provider.",
+  homepage = "https://github.com/voxgig-sdk/pokemon3d-sdk",
+  issues_url = "https://github.com/voxgig-sdk/pokemon3d-sdk/issues",
+  license = "MIT",
+  labels = { "voxgig", "sdk", "generated-sdk", "openapi", "api-client", "pokemon3d" }
 }
 dependencies = {
   "lua >= 5.3",
-  "dkjson >= 2.5",
   "dkjson >= 2.5",
 }
 build = {

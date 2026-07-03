@@ -10,7 +10,7 @@ The Python SDK for the Pokemon3d API — an entity-oriented client following Pyt
 
 ## Install
 ```bash
-pip install pokemon3d-sdk
+pip install voxgig-sdk-pokemon3d
 ```
 
 Or install from source:

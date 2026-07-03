@@ -10,7 +10,7 @@ The TypeScript SDK for the Pokemon3d API — a type-safe, entity-oriented client
 
 ## Install
 ```bash
-npm install pokemon3d
+npm install @voxgig-sdk/pokemon3d
 ```
 ## Tutorial: your first API call
 

@@ -10,7 +10,7 @@ The PHP SDK for the Pokemon3d API — an entity-oriented client using PHP conven
 
 ## Install
 ```bash
-composer require voxgig/pokemon3d-sdk
+composer require voxgig-sdk/pokemon3d
 ```
 
 

@@ -10,13 +10,13 @@ The Ruby SDK for the Pokemon3d API — an entity-oriented client using idiomatic
 
 ## Install
 ```bash
-gem install pokemon3d-sdk
+gem install voxgig-sdk-pokemon3d
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "pokemon3d-sdk"
+gem "voxgig-sdk-pokemon3d"
 ```
 
 Then run:
