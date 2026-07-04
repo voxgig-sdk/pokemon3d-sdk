@@ -204,14 +204,7 @@ class Pokemon3dSDK {
 
 
 
-  _pokemon?: PokemonEntity
-
-  // Idiomatic facade: `client.pokemon.list()` / `client.pokemon.load({ id })`.
-  get pokemon(): PokemonEntity {
-    return (this._pokemon ??= new PokemonEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.pokemon` instead. */
+  // Entity access: `client.Pokemon().list()` / `client.Pokemon().load({ id })`.
   Pokemon(data?: any) {
     const self = this
     return new PokemonEntity(self,data)

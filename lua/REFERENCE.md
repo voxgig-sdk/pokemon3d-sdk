@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## PokemonEntity
 
 ```lua
-local pokemon = client:pokemon(nil)
+local pokemon = client:Pokemon(nil)
 ```
 
 ### Fields
@@ -109,7 +109,7 @@ local pokemon = client:pokemon(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:pokemon():list()
+local results, err = client:Pokemon():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -117,7 +117,7 @@ local results, err = client:pokemon():list()
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:pokemon():load({ id = "pokemon_id" })
+local result, err = client:Pokemon():load({ id = "pokemon_id" })
 ```
 
 ### Common Methods

@@ -233,10 +233,10 @@ class Pokemon3dSDK
 
     private $_pokemon = null;
 
-    // Idiomatic facade: $client->pokemon()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Pokemon() (PHP method
-    // names are case-insensitive).
-    public function pokemon($data = null)
+    // Canonical facade: $client->Pokemon()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->pokemon()
+    // resolves here too.
+    public function Pokemon($data = null)
     {
         require_once __DIR__ . '/entity/pokemon_entity.php';
         if ($data === null) {

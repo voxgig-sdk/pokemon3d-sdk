@@ -28,16 +28,14 @@ require_relative "Pokemon3d_sdk"
 client = Pokemon3dSDK.new
 ```
 
-### 2. List pokemons
+### 2. List pokemon records
 
 ```ruby
 begin
-  result = client.pokemon.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of Pokemon records — iterate directly.
+  pokemons = client.Pokemon.list
+  pokemons.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -48,8 +46,9 @@ end
 
 ```ruby
 begin
-  result = client.pokemon.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare Pokemon record (raises on error).
+  pokemon = client.Pokemon.load({ "id" => "example_id" })
+  puts pokemon
 rescue => err
   warn "load failed: #{err}"
 end
@@ -96,13 +95,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = Pokemon3dSDK.test
+client = Pokemon3dSDK.test({
+  "entity" => { "pokemon" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.pokemon.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+pokemon = client.Pokemon.load({ "id" => "test01" })
+puts pokemon
 ```
 
 ### Use a custom fetch function
@@ -244,7 +247,7 @@ API path: `/pokemons`
 
 ### Pokemon
 
-Create an instance: `const pokemon = client.pokemon`
+Create an instance: `pokemon = client.Pokemon`
 
 #### Operations
 
@@ -271,14 +274,16 @@ Create an instance: `const pokemon = client.pokemon`
 
 #### Example: Load
 
-```ts
-const pokemon = await client.pokemon.load({ id: 'pokemon_id' })
+```ruby
+# load returns the bare Pokemon record (raises on error).
+pokemon = client.Pokemon.load({ "id" => "pokemon_id" })
 ```
 
 #### Example: List
 
-```ts
-const pokemons = await client.pokemon.list()
+```ruby
+# list returns an Array of Pokemon records (raises on error).
+pokemons = client.Pokemon.list
 ```
 
 
@@ -353,7 +358,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-pokemon = client.pokemon
+pokemon = client.Pokemon
 pokemon.load({ "id" => "example_id" })
 
 # pokemon.data_get now returns the loaded pokemon data

@@ -31,24 +31,28 @@ from pokemon3d_sdk import Pokemon3dSDK
 client = Pokemon3dSDK()
 ```
 
-### 2. List pokemons
+### 2. List pokemon records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.pokemon.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    pokemons = client.Pokemon().list({})
+    for pokemon in pokemons:
+        print(pokemon)
 except Exception as err:
     print(f"list failed: {err}")
 ```
 
 ### 3. Load a pokemon
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.pokemon.load({"id": "example_id"})
-    print(result)
+    pokemon = client.Pokemon().load({"id": "example_id"})
+    print(pokemon)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -96,8 +100,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = Pokemon3dSDK.test()
 
-result = client.pokemon.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+pokemon = client.Pokemon().load({"id": "test01"})
+# pokemon contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -240,7 +245,7 @@ API path: `/pokemons`
 
 ### Pokemon
 
-Create an instance: `const pokemon = client.pokemon`
+Create an instance: `pokemon = client.Pokemon()`
 
 #### Operations
 
@@ -267,14 +272,14 @@ Create an instance: `const pokemon = client.pokemon`
 
 #### Example: Load
 
-```ts
-const pokemon = await client.pokemon.load({ id: 'pokemon_id' })
+```python
+pokemon = client.Pokemon().load({"id": "pokemon_id"})
 ```
 
 #### Example: List
 
-```ts
-const pokemons = await client.pokemon.list()
+```python
+pokemons = client.Pokemon().list({})
 ```
 
 
@@ -348,7 +353,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-pokemon = client.pokemon
+pokemon = client.Pokemon()
 pokemon.load({"id": "example_id"})
 
 # pokemon.data_get() now returns the loaded pokemon data

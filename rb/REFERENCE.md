@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## PokemonEntity
 
 ```ruby
-pokemon = client.pokemon
+pokemon = client.Pokemon
 ```
 
 ### Fields
@@ -112,7 +112,7 @@ pokemon = client.pokemon
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.pokemon.list(nil)
+results = client.Pokemon.list(nil)
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -120,7 +120,7 @@ results = client.pokemon.list(nil)
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.pokemon.load({ "id" => "pokemon_id" })
+result = client.Pokemon.load({ "id" => "pokemon_id" })
 ```
 
 ### Common Methods

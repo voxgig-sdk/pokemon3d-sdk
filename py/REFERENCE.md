@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## PokemonEntity
 
 ```python
-pokemon = client.pokemon
+pokemon = client.Pokemon()
 ```
 
 ### Fields
@@ -106,7 +106,9 @@ pokemon = client.pokemon
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.pokemon.list({})
+results = client.Pokemon().list({})
+for pokemon in results:
+    print(pokemon)
 ```
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -114,7 +116,7 @@ results = client.pokemon.list({})
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.pokemon.load({"id": "pokemon_id"})
+result = client.Pokemon().load({"id": "pokemon_id"})
 ```
 
 ### Common Methods

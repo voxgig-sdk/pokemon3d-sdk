@@ -109,7 +109,7 @@ Alias for `Pokemon3dSDK.test()`.
 ## PokemonEntity
 
 ```ts
-const pokemon = client.pokemon
+const pokemon = client.Pokemon()
 ```
 
 ### Fields
@@ -135,7 +135,7 @@ const pokemon = client.pokemon
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.pokemon.list()
+const results = await client.Pokemon().list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -143,7 +143,7 @@ const results = await client.pokemon.list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.pokemon.load({ id: 'pokemon_id' })
+const result = await client.Pokemon().load({ id: 'pokemon_id' })
 ```
 
 ### Common Methods

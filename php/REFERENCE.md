@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## PokemonEntity
 
 ```php
-$pokemon = $client->pokemon();
+$pokemon = $client->Pokemon();
 ```
 
 ### Fields
@@ -111,7 +111,7 @@ $pokemon = $client->pokemon();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->pokemon()->list([]);
+$results = $client->Pokemon()->list([]);
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -119,7 +119,7 @@ $results = $client->pokemon()->list([]);
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->pokemon()->load(["id" => "pokemon_id"]);
+$result = $client->Pokemon()->load(["id" => "pokemon_id"]);
 ```
 
 ### Common Methods

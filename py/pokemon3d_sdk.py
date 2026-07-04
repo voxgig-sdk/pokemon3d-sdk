@@ -220,25 +220,15 @@ class Pokemon3dSDK:
         }
 
 
-    @property
-    def pokemon(self):
-        """Idiomatic facade: client.pokemon.list() / client.pokemon.load({"id": ...})."""
-        from entity.pokemon_entity import PokemonEntity
-        cached = getattr(self, "_pokemon", None)
-        if cached is None:
-            cached = PokemonEntity(self, None)
-            self._pokemon = cached
-        return cached
-
-    def Pokemon(self, data=None):
-        # Deprecated: use client.pokemon instead.
+    def Pokemon(self, data=None) -> "PokemonEntity":
+        """Entity factory: client.Pokemon().list({}) / client.Pokemon().load({"id": ...})."""
         from entity.pokemon_entity import PokemonEntity
         return PokemonEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "Pokemon3dSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class Pokemon3dSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.pokemon_entity import PokemonEntity

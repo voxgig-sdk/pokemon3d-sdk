@@ -208,13 +208,7 @@ class Pokemon3dSDK
   end
 
 
-  # Idiomatic facade: client.pokemon.list / client.pokemon.load({ "id" => ... })
-  def pokemon
-    require_relative 'entity/pokemon_entity'
-    @pokemon ||= PokemonEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.pokemon instead.
+  # Canonical facade: client.Pokemon.list / client.Pokemon.load({ "id" => ... })
   def Pokemon(data = nil)
     require_relative 'entity/pokemon_entity'
     PokemonEntity.new(self, data)

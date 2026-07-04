@@ -29,18 +29,16 @@ require_once 'pokemon3d_sdk.php';
 $client = new Pokemon3dSDK();
 ```
 
-### 2. List pokemons
+### 2. List pokemon records
 
 ```php
 try {
-    $result = $client->pokemon()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of Pokemon records — iterate directly.
+    $pokemons = $client->Pokemon()->list();
+    foreach ($pokemons as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -49,9 +47,10 @@ try {
 
 ```php
 try {
-    $result = $client->pokemon()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare Pokemon record (throws on error).
+    $pokemon = $client->Pokemon()->load(["id" => "example_id"]);
+    print_r($pokemon);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -97,13 +96,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = Pokemon3dSDK::test();
+$client = Pokemon3dSDK::test([
+    "entity" => ["pokemon" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->pokemon()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$pokemon = $client->Pokemon()->load(["id" => "test01"]);
+print_r($pokemon);
 ```
 
 ### Use a custom fetch function
@@ -249,7 +252,7 @@ API path: `/pokemons`
 
 ### Pokemon
 
-Create an instance: `const pokemon = client.pokemon`
+Create an instance: `$pokemon = $client->Pokemon();`
 
 #### Operations
 
@@ -276,14 +279,16 @@ Create an instance: `const pokemon = client.pokemon`
 
 #### Example: Load
 
-```ts
-const pokemon = await client.pokemon.load({ id: 'pokemon_id' })
+```php
+// load() returns the bare Pokemon record (throws on error).
+$pokemon = $client->Pokemon()->load(["id" => "pokemon_id"]);
 ```
 
 #### Example: List
 
-```ts
-const pokemons = await client.pokemon.list()
+```php
+// list() returns an array of Pokemon records (throws on error).
+$pokemons = $client->Pokemon()->list();
 ```
 
 
@@ -358,7 +363,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$pokemon = $client->pokemon();
+$pokemon = $client->Pokemon();
 $pokemon->load(["id" => "example_id"]);
 
 // $pokemon->dataGet() now returns the loaded pokemon data

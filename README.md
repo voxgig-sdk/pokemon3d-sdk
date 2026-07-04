@@ -26,9 +26,11 @@ import { Pokemon3dSDK } from '@voxgig-sdk/pokemon3d'
 
 const client = new Pokemon3dSDK()
 
-// List all pokemons
-const pokemons = await client.pokemon.list()
-console.log(pokemons.data)
+// List all pokemons (returns Pokemon[])
+const pokemons = await client.Pokemon().list()
+for (const pokemon of pokemons) {
+  console.log(pokemon)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -83,12 +85,13 @@ from pokemon3d_sdk import Pokemon3dSDK
 
 client = Pokemon3dSDK()
 
-# List all pokemons
-pokemons = client.pokemon.list()
-print(pokemons)
+# List all pokemons (returns a list, raises on error)
+pokemons = client.Pokemon().list({})
+for pokemon in pokemons:
+    print(pokemon)
 
-# Load a specific pokemon
-pokemon = client.pokemon.load({"id": "example_id"})
+# Load a specific pokemon (returns the record, raises on error)
+pokemon = client.Pokemon().load({"id": "example_id"})
 print(pokemon)
 ```
 
@@ -100,12 +103,12 @@ require_once 'pokemon3d_sdk.php';
 
 $client = new Pokemon3dSDK();
 
-// List all pokemons (throws on error)
-$pokemons = $client->pokemon()->list();
+// List all pokemons (returns an array; throws on error)
+$pokemons = $client->Pokemon()->list();
 print_r($pokemons);
 
-// Load a specific pokemon
-$pokemon = $client->pokemon()->load(["id" => "example_id"]);
+// Load a specific pokemon (returns the bare record; throws on error)
+$pokemon = $client->Pokemon()->load(["id" => "example_id"]);
 print_r($pokemon);
 ```
 
@@ -128,12 +131,12 @@ require_relative "Pokemon3d_sdk"
 
 client = Pokemon3dSDK.new
 
-# List all pokemons
-pokemons = client.pokemon.list
+# List all pokemons (returns an Array; raises on error)
+pokemons = client.Pokemon.list
 puts pokemons
 
-# Load a specific pokemon
-pokemon = client.pokemon.load({ "id" => "example_id" })
+# Load a specific pokemon (returns the bare record; raises on error)
+pokemon = client.Pokemon.load({ "id" => "example_id" })
 puts pokemon
 ```
 
@@ -145,11 +148,11 @@ local sdk = require("pokemon3d_sdk")
 local client = sdk.new()
 
 -- List all pokemons
-local pokemons, err = client:pokemon():list()
+local pokemons, err = client:Pokemon():list()
 print(pokemons)
 
 -- Load a specific pokemon
-local pokemon, err = client:pokemon():load({ id = "example_id" })
+local pokemon, err = client:Pokemon():load({ id = "example_id" })
 print(pokemon)
 ```
 
@@ -162,22 +165,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = Pokemon3dSDK.test()
-const result = await client.pokemon.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const pokemon = await client.Pokemon().load({ id: 1 })
+// pokemon is a bare Pokemon populated with mock data
+console.log(pokemon)
 ```
 
 ### Python
 
 ```python
 client = Pokemon3dSDK.test()
-result = client.pokemon.load({"id": "test01"})
+pokemon = client.Pokemon().load({"id": "test01"})
+print(pokemon)
 ```
 
 ### PHP
 
 ```php
-$client = Pokemon3dSDK::test();
-$result = $client->pokemon()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = Pokemon3dSDK::test([
+    "entity" => ["pokemon" => ["test01" => ["id" => "test01"]]],
+]);
+$pokemon = $client->Pokemon()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -192,15 +200,18 @@ result, err := client.Pokemon(nil).Load(
 ### Ruby
 
 ```ruby
-client = Pokemon3dSDK.test
-result = client.pokemon.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = Pokemon3dSDK.test({
+  "entity" => { "pokemon" => { "test01" => { "id" => "test01" } } },
+})
+pokemon = client.Pokemon.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:pokemon():load({ id = "test01" })
+local result, err = client:Pokemon():load({ id = "test01" })
 ```
 
 ## How it works
@@ -248,6 +259,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

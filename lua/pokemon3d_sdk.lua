@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:pokemon():list() / client:pokemon():load({ id = ... })
-function Pokemon3dSDK:pokemon(data)
+-- Idiomatic facade: client:Pokemon():list() / client:Pokemon():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function Pokemon3dSDK:Pokemon(data)
   local EntityMod = require("entity.pokemon_entity")
   if data == nil then
     if self._pokemon == nil then
@@ -253,12 +254,6 @@ function Pokemon3dSDK:pokemon(data)
     end
     return self._pokemon
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:pokemon() instead.
-function Pokemon3dSDK:Pokemon(data)
-  local EntityMod = require("entity.pokemon_entity")
   return EntityMod.new(self, data)
 end
 
