@@ -1,7 +1,14 @@
 # Pokemon3d SDK Pokemon entity
 
+from __future__ import annotations
+
 from utility.voxgig_struct import voxgig_struct as vs
 from core import helpers
+from pokemon3d_types import (
+    Pokemon,
+    PokemonLoadMatch,
+    PokemonListMatch,
+)
 
 
 class PokemonEntity:
@@ -44,7 +51,7 @@ class PokemonEntity:
             self._data = helpers.to_map(vs.clone(args)) or {}
             self._utility.feature_hook(self._entctx, "SetData")
 
-    def data_get(self):
+    def data_get(self) -> Pokemon:
         self._utility.feature_hook(self._entctx, "GetData")
         return vs.clone(self._data)
 
@@ -53,12 +60,12 @@ class PokemonEntity:
             self._match = helpers.to_map(vs.clone(args)) or {}
             self._utility.feature_hook(self._entctx, "SetMatch")
 
-    def match_get(self):
+    def match_get(self) -> Pokemon:
         self._utility.feature_hook(self._entctx, "GetMatch")
         return vs.clone(self._match)
 
     
-    def load(self, reqmatch, ctrl=None):
+    def load(self, reqmatch: PokemonLoadMatch, ctrl=None) -> Pokemon:
         utility = self._utility
         ctx = utility.make_context({
             "opname": "load",
@@ -80,7 +87,7 @@ class PokemonEntity:
 
 
     
-    def list(self, reqmatch, ctrl=None):
+    def list(self, reqmatch: PokemonListMatch, ctrl=None) -> list[Pokemon]:
         utility = self._utility
         ctx = utility.make_context({
             "opname": "list",

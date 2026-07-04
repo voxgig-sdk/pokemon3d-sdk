@@ -120,7 +120,6 @@ function basicSetup(extra?: any) {
     'POKEMON_D_TEST_POKEMON_ENTID': idmap,
     'POKEMON_D_TEST_LIVE': 'FALSE',
     'POKEMON_D_TEST_EXPLAIN': 'FALSE',
-    'POKEMON_D_APIKEY': 'NONE',
   })
 
   idmap = env['POKEMON_D_TEST_POKEMON_ENTID']
@@ -130,7 +129,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new Pokemon3dSDK(merge([
       {
-        apikey: env.POKEMON_D_APIKEY,
       },
       extra
     ]))

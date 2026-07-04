@@ -9,9 +9,12 @@ The TypeScript SDK for the Pokemon3d API — a type-safe, entity-oriented client
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/pokemon3d
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/pokemon3d-sdk/releases](https://github.com/voxgig-sdk/pokemon3d-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { Pokemon3dSDK } from 'pokemon3d'
+import { Pokemon3dSDK } from '@voxgig-sdk/pokemon3d'
 
-const client = new Pokemon3dSDK({
-  apikey: process.env.POKEMON3D_APIKEY,
-})
+const client = new Pokemon3dSDK()
 ```
 
 ### 2. List pokemons
 
 ```ts
-const result = await client.Pokemon().list()
+const result = await client.pokemon.list()
 
 if (result.ok) {
   for (const item of result.data) {
@@ -42,7 +43,7 @@ if (result.ok) {
 ### 3. Load a pokemon
 
 ```ts
-const result = await client.Pokemon().load({ id: 'example_id' })
+const result = await client.pokemon.load({ id: 'example_id' })
 
 if (result.ok) {
   console.log(result.data)
@@ -91,7 +92,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = Pokemon3dSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.pokemon.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -99,7 +100,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new Pokemon3dSDK({ apikey: '...' })
+const client = new Pokemon3dSDK()
 const testClient = client.tester()
 ```
 
@@ -108,7 +109,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.pokemon
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -135,7 +136,6 @@ const logger = {
 }
 
 const client = new Pokemon3dSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -146,7 +146,6 @@ Create a `.env.local` file at the project root:
 
 ```
 POKEMON3D_TEST_LIVE=TRUE
-POKEMON3D_APIKEY=<your-key>
 ```
 
 Then run:
@@ -164,7 +163,6 @@ cd ts && npm test
 
 ```ts
 new Pokemon3dSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -175,7 +173,6 @@ new Pokemon3dSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -288,7 +285,7 @@ API path: `/pokemons`
 
 ### Pokemon
 
-Create an instance: `const pokemon = client.Pokemon()`
+Create an instance: `const pokemon = client.pokemon`
 
 #### Operations
 
@@ -316,13 +313,13 @@ Create an instance: `const pokemon = client.Pokemon()`
 #### Example: Load
 
 ```ts
-const pokemon = await client.Pokemon().load({ id: 'pokemon_id' })
+const pokemon = await client.pokemon.load({ id: 'pokemon_id' })
 ```
 
 #### Example: List
 
 ```ts
-const pokemons = await client.Pokemon().list()
+const pokemons = await client.pokemon.list()
 ```
 
 
@@ -383,7 +380,7 @@ pokemon3d/
 Import the SDK from the package root:
 
 ```ts
-import { Pokemon3dSDK } from 'pokemon3d'
+import { Pokemon3dSDK } from '@voxgig-sdk/pokemon3d'
 ```
 
 ### Entity state
@@ -393,11 +390,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const pokemon = client.pokemon
+await pokemon.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// pokemon.data() now returns the loaded pokemon data
+// pokemon.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

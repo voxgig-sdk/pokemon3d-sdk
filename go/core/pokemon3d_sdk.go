@@ -245,6 +245,9 @@ func (sdk *Pokemon3dSDK) Direct(fetchargs map[string]any) (map[string]any, error
 }
 
 
+// Pokemon returns a Pokemon entity bound to this client.
+// Idiomatic usage: client.Pokemon(nil).List(nil, nil) or
+// client.Pokemon(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *Pokemon3dSDK) Pokemon(data map[string]any) Pokemon3dEntity {
 	return NewPokemonEntityFunc(sdk, data)
 }

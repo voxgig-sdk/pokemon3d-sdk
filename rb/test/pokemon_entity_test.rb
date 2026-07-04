@@ -43,16 +43,14 @@ class PokemonEntityTest < Minitest::Test
     pokemon_ref01_ent = client.Pokemon(nil)
     pokemon_ref01_match = {}
 
-    pokemon_ref01_list_result, err = pokemon_ref01_ent.list(pokemon_ref01_match, nil)
-    assert_nil err
+    pokemon_ref01_list_result = pokemon_ref01_ent.list(pokemon_ref01_match, nil)
     assert pokemon_ref01_list_result.is_a?(Array)
 
     # LOAD
     pokemon_ref01_match_dt0 = {
       "id" => pokemon_ref01_data["id"],
     }
-    pokemon_ref01_data_dt0_loaded, err = pokemon_ref01_ent.load(pokemon_ref01_match_dt0, nil)
-    assert_nil err
+    pokemon_ref01_data_dt0_loaded = pokemon_ref01_ent.load(pokemon_ref01_match_dt0, nil)
     pokemon_ref01_data_dt0_load_result = Helpers.to_map(pokemon_ref01_data_dt0_loaded)
     assert !pokemon_ref01_data_dt0_load_result.nil?
     assert_equal pokemon_ref01_data_dt0_load_result["id"], pokemon_ref01_data["id"]
@@ -93,7 +91,6 @@ def pokemon_basic_setup(extra)
     "POKEMON_D_TEST_POKEMON_ENTID" => idmap,
     "POKEMON_D_TEST_LIVE" => "FALSE",
     "POKEMON_D_TEST_EXPLAIN" => "FALSE",
-    "POKEMON_D_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -105,7 +102,6 @@ def pokemon_basic_setup(extra)
   if env["POKEMON_D_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["POKEMON_D_APIKEY"],
       },
       extra || {},
     ])

@@ -2,6 +2,8 @@
 
 import { PokemonEntity } from './entity/PokemonEntity'
 
+export type * from './Pokemon3dTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class Pokemon3dSDK {
 
 
 
+  _pokemon?: PokemonEntity
+
+  // Idiomatic facade: `client.pokemon.list()` / `client.pokemon.load({ id })`.
+  get pokemon(): PokemonEntity {
+    return (this._pokemon ??= new PokemonEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.pokemon` instead. */
   Pokemon(data?: any) {
     const self = this
     return new PokemonEntity(self,data)
