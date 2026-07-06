@@ -66,7 +66,7 @@ PokemonLoadMatch = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Pokemon#list (any subset of Pokemon fields).
+# Request payload for Pokemon#list.
 #
 # @!attribute [rw] available_form
 #   @return [Array, nil]

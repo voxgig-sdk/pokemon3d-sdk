@@ -87,26 +87,26 @@ pokemon = client.Pokemon()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `available_form` | ``$ARRAY`` | No |  |
-| `file_size` | ``$INTEGER`` | No |  |
-| `form` | ``$STRING`` | No |  |
-| `generation` | ``$INTEGER`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `model_format` | ``$STRING`` | No |  |
-| `model_url` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `texture_url` | ``$STRING`` | No |  |
-| `thumbnail_url` | ``$STRING`` | No |  |
-| `type` | ``$ARRAY`` | No |  |
+| `available_form` | `list` | No |  |
+| `file_size` | `int` | No |  |
+| `form` | `str` | No |  |
+| `generation` | `int` | No |  |
+| `id` | `int` | No |  |
+| `model_format` | `str` | No |  |
+| `model_url` | `str` | No |  |
+| `name` | `str` | No |  |
+| `texture_url` | `str` | No |  |
+| `thumbnail_url` | `str` | No |  |
+| `type` | `list` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Pokemon().list({})
+results = client.Pokemon().list()
 for pokemon in results:
     print(pokemon)
 ```

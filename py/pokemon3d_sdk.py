@@ -221,7 +221,7 @@ class Pokemon3dSDK:
 
 
     def Pokemon(self, data=None) -> "PokemonEntity":
-        """Entity factory: client.Pokemon().list({}) / client.Pokemon().load({"id": ...})."""
+        """Entity factory: client.Pokemon().list() / client.Pokemon().load({"id": ...})."""
         from entity.pokemon_entity import PokemonEntity
         return PokemonEntity(self, data)
 

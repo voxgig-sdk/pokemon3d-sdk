@@ -23,5 +23,17 @@ export interface PokemonLoadMatch {
   id: string
 }
 
-export type PokemonListMatch = Partial<Pokemon>
+export interface PokemonListMatch {
+  available_form?: any[]
+  file_size?: number
+  form?: string
+  generation?: number
+  id?: number
+  model_format?: string
+  model_url?: string
+  name?: string
+  texture_url?: string
+  thumbnail_url?: string
+  type?: any[]
+}
 

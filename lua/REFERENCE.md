@@ -90,17 +90,17 @@ local pokemon = client:Pokemon(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `available_form` | ``$ARRAY`` | No |  |
-| `file_size` | ``$INTEGER`` | No |  |
-| `form` | ``$STRING`` | No |  |
-| `generation` | ``$INTEGER`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `model_format` | ``$STRING`` | No |  |
-| `model_url` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `texture_url` | ``$STRING`` | No |  |
-| `thumbnail_url` | ``$STRING`` | No |  |
-| `type` | ``$ARRAY`` | No |  |
+| `available_form` | `table` | No |  |
+| `file_size` | `number` | No |  |
+| `form` | `string` | No |  |
+| `generation` | `number` | No |  |
+| `id` | `number` | No |  |
+| `model_format` | `string` | No |  |
+| `model_url` | `string` | No |  |
+| `name` | `string` | No |  |
+| `texture_url` | `string` | No |  |
+| `thumbnail_url` | `string` | No |  |
+| `type` | `table` | No |  |
 
 ### Operations
 

@@ -28,8 +28,7 @@ type PokemonLoadMatch struct {
 	Id string `json:"id"`
 }
 
-// PokemonListMatch mirrors the pokemon fields as an all-optional match
-// filter (Go analog of Partial<Pokemon>).
+// PokemonListMatch is the typed request payload for Pokemon.ListTyped.
 type PokemonListMatch struct {
 	AvailableForm *[]any `json:"available_form,omitempty"`
 	FileSize *int `json:"file_size,omitempty"`

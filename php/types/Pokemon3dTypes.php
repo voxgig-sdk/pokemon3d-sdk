@@ -34,7 +34,7 @@ class PokemonLoadMatch
     public string $id;
 }
 
-/** Match filter for Pokemon#list (any subset of Pokemon fields). */
+/** Request payload for Pokemon#list. */
 class PokemonListMatch
 {
     public ?array $available_form = null;

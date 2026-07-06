@@ -23,6 +23,17 @@
 ---@field id string
 
 ---@class PokemonListMatch
+---@field available_form? table
+---@field file_size? number
+---@field form? string
+---@field generation? number
+---@field id? number
+---@field model_format? string
+---@field model_url? string
+---@field name? string
+---@field texture_url? string
+---@field thumbnail_url? string
+---@field type? table
 
 local M = {}
 

@@ -8,7 +8,7 @@ Complete API reference for the Pokemon3d Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'pokemon3d_sdk'
+require_relative 'Pokemon3d_sdk'
 
 client = Pokemon3dSDK.new(options)
 ```
@@ -93,26 +93,26 @@ pokemon = client.Pokemon
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `available_form` | ``$ARRAY`` | No |  |
-| `file_size` | ``$INTEGER`` | No |  |
-| `form` | ``$STRING`` | No |  |
-| `generation` | ``$INTEGER`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `model_format` | ``$STRING`` | No |  |
-| `model_url` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `texture_url` | ``$STRING`` | No |  |
-| `thumbnail_url` | ``$STRING`` | No |  |
-| `type` | ``$ARRAY`` | No |  |
+| `available_form` | `Array` | No |  |
+| `file_size` | `Integer` | No |  |
+| `form` | `String` | No |  |
+| `generation` | `Integer` | No |  |
+| `id` | `Integer` | No |  |
+| `model_format` | `String` | No |  |
+| `model_url` | `String` | No |  |
+| `name` | `String` | No |  |
+| `texture_url` | `String` | No |  |
+| `thumbnail_url` | `String` | No |  |
+| `type` | `Array` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Pokemon.list(nil)
+results = client.Pokemon.list
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
