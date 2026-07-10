@@ -15,9 +15,9 @@ main: {
           url: "https://pokemon3d.io/api"
         }
       ]
+      summary: "The Pokemon3D API provides access to 3D models of Pokémon, enabling developers to easily integrate and display interactive Pokémon models within their applications."
       title: "Pokemon3D API"
       version: "1.0.0"
+      website: "https://pokemon3d.io"
     }
   }
-}
-

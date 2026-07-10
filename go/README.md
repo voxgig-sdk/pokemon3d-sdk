@@ -60,7 +60,7 @@ func main() {
     }
 
     // Load a single pokemon — the value is the loaded record.
-    pokemon, err := client.Pokemon(nil).Load(map[string]any{"id": "example"}, nil)
+    pokemon, err := client.Pokemon(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil {
         panic(err)
     }
