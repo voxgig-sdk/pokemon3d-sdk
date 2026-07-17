@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- Pokemon3d SDK exists test
 
 local sdk = require("pokemon3d_sdk")
 

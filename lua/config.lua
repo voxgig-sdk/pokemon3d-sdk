@@ -1,4 +1,4 @@
--- ProjectName SDK configuration
+-- Pokemon3d SDK configuration
 
 local function make_config()
   return {
