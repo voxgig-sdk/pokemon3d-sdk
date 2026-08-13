@@ -10,14 +10,17 @@
 
 # Pokemon entity data model.
 #
-# @!attribute [rw] available_form
+# @!attribute [rw] availableForms
 #   @return [Array, nil]
 #
-# @!attribute [rw] file_size
+# @!attribute [rw] fileSize
 #   @return [Integer, nil]
 #
 # @!attribute [rw] form
 #   @return [String, nil]
+#
+# @!attribute [rw] forms
+#   @return [Array, nil]
 #
 # @!attribute [rw] generation
 #   @return [Integer, nil]
@@ -25,34 +28,35 @@
 # @!attribute [rw] id
 #   @return [Integer, nil]
 #
-# @!attribute [rw] model_format
+# @!attribute [rw] modelFormat
 #   @return [String, nil]
 #
-# @!attribute [rw] model_url
+# @!attribute [rw] modelUrl
 #   @return [String, nil]
 #
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] texture_url
+# @!attribute [rw] textureUrl
 #   @return [String, nil]
 #
-# @!attribute [rw] thumbnail_url
+# @!attribute [rw] thumbnailUrl
 #   @return [String, nil]
 #
 # @!attribute [rw] type
 #   @return [Array, nil]
 Pokemon = Struct.new(
-  :available_form,
-  :file_size,
+  :availableForms,
+  :fileSize,
   :form,
+  :forms,
   :generation,
   :id,
-  :model_format,
-  :model_url,
+  :modelFormat,
+  :modelUrl,
   :name,
-  :texture_url,
-  :thumbnail_url,
+  :textureUrl,
+  :thumbnailUrl,
   :type,
   keyword_init: true
 )
@@ -68,14 +72,17 @@ PokemonLoadMatch = Struct.new(
 
 # Request payload for Pokemon#list.
 #
-# @!attribute [rw] available_form
+# @!attribute [rw] availableForms
 #   @return [Array, nil]
 #
-# @!attribute [rw] file_size
+# @!attribute [rw] fileSize
 #   @return [Integer, nil]
 #
 # @!attribute [rw] form
 #   @return [String, nil]
+#
+# @!attribute [rw] forms
+#   @return [Array, nil]
 #
 # @!attribute [rw] generation
 #   @return [Integer, nil]
@@ -83,34 +90,35 @@ PokemonLoadMatch = Struct.new(
 # @!attribute [rw] id
 #   @return [Integer, nil]
 #
-# @!attribute [rw] model_format
+# @!attribute [rw] modelFormat
 #   @return [String, nil]
 #
-# @!attribute [rw] model_url
+# @!attribute [rw] modelUrl
 #   @return [String, nil]
 #
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] texture_url
+# @!attribute [rw] textureUrl
 #   @return [String, nil]
 #
-# @!attribute [rw] thumbnail_url
+# @!attribute [rw] thumbnailUrl
 #   @return [String, nil]
 #
 # @!attribute [rw] type
 #   @return [Array, nil]
 PokemonListMatch = Struct.new(
-  :available_form,
-  :file_size,
+  :availableForms,
+  :fileSize,
   :form,
+  :forms,
   :generation,
   :id,
-  :model_format,
-  :model_url,
+  :modelFormat,
+  :modelUrl,
   :name,
-  :texture_url,
-  :thumbnail_url,
+  :textureUrl,
+  :thumbnailUrl,
   :type,
   keyword_init: true
 )

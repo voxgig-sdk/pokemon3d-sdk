@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from pokemon3d_sdk.utility.voxgig_struct import voxgig_struct as vs
 from pokemon3d_sdk import Pokemon3dSDK
-from core import helpers
+from pokemon3d_sdk.core import helpers
 from test import runner
 
 
@@ -105,11 +105,11 @@ def _pokemon_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "POKEMON_D_TEST_POKEMON_ENTID": {},
-        "POKEMON_D_TEST_LIVE": "FALSE",
+        "POKEMON3D_TEST_POKEMON_ENTID": {},
+        "POKEMON3D_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("POKEMON_D_TEST_LIVE") == "TRUE"
+    live = env.get("POKEMON3D_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

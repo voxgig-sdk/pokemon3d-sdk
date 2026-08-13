@@ -6,16 +6,17 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface Pokemon {
-  available_form?: any[]
-  file_size?: number
+  availableForms?: any[]
+  fileSize?: number
   form?: string
+  forms?: any[]
   generation?: number
   id?: number
-  model_format?: string
-  model_url?: string
+  modelFormat?: string
+  modelUrl?: string
   name?: string
-  texture_url?: string
-  thumbnail_url?: string
+  textureUrl?: string
+  thumbnailUrl?: string
   type?: any[]
 }
 
@@ -24,16 +25,17 @@ export interface PokemonLoadMatch {
 }
 
 export interface PokemonListMatch {
-  available_form?: any[]
-  file_size?: number
+  availableForms?: any[]
+  fileSize?: number
   form?: string
+  forms?: any[]
   generation?: number
   id?: number
-  model_format?: string
-  model_url?: string
+  modelFormat?: string
+  modelUrl?: string
   name?: string
-  texture_url?: string
-  thumbnail_url?: string
+  textureUrl?: string
+  thumbnailUrl?: string
   type?: any[]
 }
 

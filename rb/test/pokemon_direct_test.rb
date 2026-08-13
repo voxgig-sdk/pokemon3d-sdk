@@ -114,11 +114,11 @@ def pokemon_direct_setup(mockres)
   calls = []
 
   env = Runner.env_override({
-    "POKEMON_D_TEST_POKEMON_ENTID" => {},
-    "POKEMON_D_TEST_LIVE" => "FALSE",
+    "POKEMON3D_TEST_POKEMON_ENTID" => {},
+    "POKEMON3D_TEST_LIVE" => "FALSE",
   })
 
-  live = env["POKEMON_D_TEST_LIVE"] == "TRUE"
+  live = env["POKEMON3D_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {

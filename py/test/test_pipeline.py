@@ -16,11 +16,11 @@
 import pytest
 
 from pokemon3d_sdk import Pokemon3dSDK
-from core.error import Pokemon3dError
-from core.result import Pokemon3dResult
-from core.response import Pokemon3dResponse
-from core.spec import Pokemon3dSpec
-from feature.base_feature import Pokemon3dBaseFeature
+from pokemon3d_sdk.core.error import Pokemon3dError
+from pokemon3d_sdk.core.result import Pokemon3dResult
+from pokemon3d_sdk.core.response import Pokemon3dResponse
+from pokemon3d_sdk.core.spec import Pokemon3dSpec
+from pokemon3d_sdk.feature.base_feature import Pokemon3dBaseFeature
 
 
 def _client():

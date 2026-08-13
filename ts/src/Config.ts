@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'Pokemon3d',
   }
 
 
@@ -56,14 +56,14 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "available_form",
+          "name": "availableForms",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "file_size",
+          "name": "fileSize",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 1
@@ -77,59 +77,66 @@ class Config {
         },
         {
           "active": true,
-          "name": "generation",
+          "name": "forms",
           "req": false,
-          "type": "`$INTEGER`",
+          "type": "`$ARRAY`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "id",
+          "name": "generation",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "model_format",
+          "name": "id",
           "req": false,
-          "type": "`$STRING`",
+          "type": "`$INTEGER`",
           "index$": 5
         },
         {
           "active": true,
-          "name": "model_url",
+          "name": "modelFormat",
           "req": false,
           "type": "`$STRING`",
           "index$": 6
         },
         {
           "active": true,
-          "name": "name",
+          "name": "modelUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 7
         },
         {
           "active": true,
-          "name": "texture_url",
+          "name": "name",
           "req": false,
           "type": "`$STRING`",
           "index$": 8
         },
         {
           "active": true,
-          "name": "thumbnail_url",
+          "name": "textureUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 9
         },
         {
           "active": true,
+          "name": "thumbnailUrl",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 10
+        },
+        {
+          "active": true,
           "name": "type",
           "req": false,
           "type": "`$ARRAY`",
-          "index$": 10
+          "index$": 11
         }
       ],
       "name": "pokemon",
@@ -162,6 +169,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/pokemons",
               "parts": [
@@ -175,7 +183,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.results`"
               },
               "index$": 0
             }
@@ -211,6 +219,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/pokemons/{id}",
               "parts": [

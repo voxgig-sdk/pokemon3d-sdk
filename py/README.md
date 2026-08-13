@@ -52,7 +52,7 @@ except Exception as err:
 
 ### 3. Load a pokemon
 
-`load()` returns the bare record (a `dict`) and raises on error.
+`load()` returns the ENTITY — call data_get() for the record — and raises on error.
 
 ```python
 try:
@@ -136,7 +136,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = Pokemon3dSDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 pokemon = client.Pokemon().list()
 # pokemon contains the mock response record
 ```
@@ -233,7 +234,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -255,16 +256,17 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `available_form` |  |
-| `file_size` |  |
+| `availableForms` |  |
+| `fileSize` |  |
 | `form` |  |
+| `forms` |  |
 | `generation` |  |
 | `id` |  |
-| `model_format` |  |
-| `model_url` |  |
+| `modelFormat` |  |
+| `modelUrl` |  |
 | `name` |  |
-| `texture_url` |  |
-| `thumbnail_url` |  |
+| `textureUrl` |  |
+| `thumbnailUrl` |  |
 | `type` |  |
 
 Operations: List, Load.
@@ -291,16 +293,17 @@ Create an instance: `pokemon = client.Pokemon()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `available_form` | `list` |  |
-| `file_size` | `int` |  |
+| `availableForms` | `list` |  |
+| `fileSize` | `int` |  |
 | `form` | `str` |  |
+| `forms` | `list` |  |
 | `generation` | `int` |  |
 | `id` | `int` |  |
-| `model_format` | `str` |  |
-| `model_url` | `str` |  |
+| `modelFormat` | `str` |  |
+| `modelUrl` | `str` |  |
 | `name` | `str` |  |
-| `texture_url` | `str` |  |
-| `thumbnail_url` | `str` |  |
+| `textureUrl` | `str` |  |
+| `thumbnailUrl` | `str` |  |
 | `type` | `list` |  |
 
 #### Example: Load

@@ -37,7 +37,7 @@ begin
   # list returns an Array of Pokemon records — iterate directly.
   pokemons = client.Pokemon.list
   pokemons.each do |item|
-    puts "#{item["id"]} #{item["available_form"]}"
+    puts "#{item["id"]} #{item["availableForms"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -48,7 +48,7 @@ end
 
 ```ruby
 begin
-  # load returns the bare Pokemon record (raises on error).
+  # load returns the ENTITY — call data_get for the Pokemon record (raises on error).
   pokemon = client.Pokemon.load({ "id" => "example_id" })
   puts pokemon
 rescue => err
@@ -134,7 +134,8 @@ client = Pokemon3dSDK.test({
   "entity" => { "pokemon" => { "test01" => { "id" => "test01" } } },
 })
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 pokemon = client.Pokemon.list()
 puts pokemon
 ```
@@ -252,16 +253,17 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `available_form` |  |
-| `file_size` |  |
+| `availableForms` |  |
+| `fileSize` |  |
 | `form` |  |
+| `forms` |  |
 | `generation` |  |
 | `id` |  |
-| `model_format` |  |
-| `model_url` |  |
+| `modelFormat` |  |
+| `modelUrl` |  |
 | `name` |  |
-| `texture_url` |  |
-| `thumbnail_url` |  |
+| `textureUrl` |  |
+| `thumbnailUrl` |  |
 | `type` |  |
 
 Operations: List, Load.
@@ -288,22 +290,23 @@ Create an instance: `pokemon = client.Pokemon`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `available_form` | `Array` |  |
-| `file_size` | `Integer` |  |
+| `availableForms` | `Array` |  |
+| `fileSize` | `Integer` |  |
 | `form` | `String` |  |
+| `forms` | `Array` |  |
 | `generation` | `Integer` |  |
 | `id` | `Integer` |  |
-| `model_format` | `String` |  |
-| `model_url` | `String` |  |
+| `modelFormat` | `String` |  |
+| `modelUrl` | `String` |  |
 | `name` | `String` |  |
-| `texture_url` | `String` |  |
-| `thumbnail_url` | `String` |  |
+| `textureUrl` | `String` |  |
+| `thumbnailUrl` | `String` |  |
 | `type` | `Array` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Pokemon record (raises on error).
+# load returns the ENTITY — call data_get for the Pokemon record (raises on error).
 pokemon = client.Pokemon.load({ "id" => "pokemon_id" })
 ```
 

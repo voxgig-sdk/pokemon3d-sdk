@@ -38,7 +38,7 @@ describe('PokemonEntity', async () => {
 
   test('basic', async (t) => {
 
-    const live = 'TRUE' === process.env.POKEMON_D_TEST_LIVE
+    const live = 'TRUE' === process.env.POKEMON3D_TEST_LIVE
     for (const op of ['list', 'load']) {
       if (maybeSkipControl(t, 'entityOp', 'pokemon.' + op, live)) return
     }
@@ -48,7 +48,7 @@ describe('PokemonEntity', async () => {
     // fixture (entity TestData.json). Those don't exist on the live API.
     // Skip live runs unless the user provided a real ENTID env override.
     if (setup.syntheticOnly) {
-      t.skip('live entity test uses synthetic IDs from fixture — set POKEMON_D_TEST_POKEMON_ENTID JSON to run live')
+      t.skip('live entity test uses synthetic IDs from fixture — set POKEMON3D_TEST_POKEMON_ENTID JSON to run live')
       return
     }
     const client = setup.client
@@ -63,13 +63,13 @@ describe('PokemonEntity', async () => {
     const pokemon_ref01_ent = client.Pokemon()
     const pokemon_ref01_match: any = {}
 
-    const pokemon_ref01_list = await pokemon_ref01_ent.list(pokemon_ref01_match)
+    const pokemon_ref01_list = (await pokemon_ref01_ent.list(pokemon_ref01_match)).map((e: any) => e.data())
 
 
     // LOAD
     const pokemon_ref01_match_dt0: any = {}
     pokemon_ref01_match_dt0.id = pokemon_ref01_data.id
-    const pokemon_ref01_data_dt0 = await pokemon_ref01_ent.load(pokemon_ref01_match_dt0)
+    const pokemon_ref01_data_dt0 = (await pokemon_ref01_ent.load(pokemon_ref01_match_dt0)).data()
     assert(pokemon_ref01_data_dt0.id === pokemon_ref01_data.id)
 
 
@@ -113,18 +113,18 @@ function basicSetup(extra?: any) {
   // basic flow consumes synthetic IDs from the fixture file; without an
   // override those synthetic IDs reach the live API and 4xx. Surface this
   // to the test so it can skip rather than fail.
-  const idmapEnvVal = process.env['POKEMON_D_TEST_POKEMON_ENTID']
+  const idmapEnvVal = process.env['POKEMON3D_TEST_POKEMON_ENTID']
   const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{')
 
   const env = envOverride({
-    'POKEMON_D_TEST_POKEMON_ENTID': idmap,
-    'POKEMON_D_TEST_LIVE': 'FALSE',
-    'POKEMON_D_TEST_EXPLAIN': 'FALSE',
+    'POKEMON3D_TEST_POKEMON_ENTID': idmap,
+    'POKEMON3D_TEST_LIVE': 'FALSE',
+    'POKEMON3D_TEST_EXPLAIN': 'FALSE',
   })
 
-  idmap = env['POKEMON_D_TEST_POKEMON_ENTID']
+  idmap = env['POKEMON3D_TEST_POKEMON_ENTID']
 
-  const live = 'TRUE' === env.POKEMON_D_TEST_LIVE
+  const live = 'TRUE' === env.POKEMON3D_TEST_LIVE
 
   if (live) {
     client = new Pokemon3dSDK(merge([
@@ -141,7 +141,7 @@ function basicSetup(extra?: any) {
     client,
     struct,
     data: entityData,
-    explain: 'TRUE' === env.POKEMON_D_TEST_EXPLAIN,
+    explain: 'TRUE' === env.POKEMON3D_TEST_EXPLAIN,
     live,
     syntheticOnly: live && !idmapOverridden,
     now: Date.now(),

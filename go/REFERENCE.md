@@ -98,16 +98,17 @@ fmt.Println(pokemon.GetName()) // "pokemon"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `available_form` | `[]any` | No |  |
-| `file_size` | `int` | No |  |
+| `availableForms` | `[]any` | No |  |
+| `fileSize` | `int` | No |  |
 | `form` | `string` | No |  |
+| `forms` | `[]any` | No |  |
 | `generation` | `int` | No |  |
 | `id` | `int` | No |  |
-| `model_format` | `string` | No |  |
-| `model_url` | `string` | No |  |
+| `modelFormat` | `string` | No |  |
+| `modelUrl` | `string` | No |  |
 | `name` | `string` | No |  |
-| `texture_url` | `string` | No |  |
-| `thumbnail_url` | `string` | No |  |
+| `textureUrl` | `string` | No |  |
+| `thumbnailUrl` | `string` | No |  |
 | `type` | `[]any` | No |  |
 
 ### Operations

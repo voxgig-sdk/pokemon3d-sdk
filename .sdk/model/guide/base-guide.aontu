@@ -8,6 +8,7 @@ guide: {
   entity: pokemon: {
     path: "/pokemons": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
     }
     path: "/pokemons/{id}": {
       op: load: method: *GET

@@ -269,16 +269,17 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"available_form"` |  |
-| `"file_size"` |  |
+| `"availableForms"` |  |
+| `"fileSize"` |  |
 | `"form"` |  |
+| `"forms"` |  |
 | `"generation"` |  |
 | `"id"` |  |
-| `"model_format"` |  |
-| `"model_url"` |  |
+| `"modelFormat"` |  |
+| `"modelUrl"` |  |
 | `"name"` |  |
-| `"texture_url"` |  |
-| `"thumbnail_url"` |  |
+| `"textureUrl"` |  |
+| `"thumbnailUrl"` |  |
 | `"type"` |  |
 
 Operations: List, Load.
@@ -305,16 +306,17 @@ Create an instance: `pokemon := client.Pokemon(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `available_form` | `[]any` |  |
-| `file_size` | `int` |  |
+| `availableForms` | `[]any` |  |
+| `fileSize` | `int` |  |
 | `form` | `string` |  |
+| `forms` | `[]any` |  |
 | `generation` | `int` |  |
 | `id` | `int` |  |
-| `model_format` | `string` |  |
-| `model_url` | `string` |  |
+| `modelFormat` | `string` |  |
+| `modelUrl` | `string` |  |
 | `name` | `string` |  |
-| `texture_url` | `string` |  |
-| `thumbnail_url` | `string` |  |
+| `textureUrl` | `string` |  |
+| `thumbnailUrl` | `string` |  |
 | `type` | `[]any` |  |
 
 #### Example: Load

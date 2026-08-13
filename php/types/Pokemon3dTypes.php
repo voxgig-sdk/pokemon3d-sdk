@@ -15,16 +15,17 @@ declare(strict_types=1);
 /** Pokemon entity data model. */
 class Pokemon
 {
-    public ?array $available_form = null;
-    public ?int $file_size = null;
+    public ?array $availableForms = null;
+    public ?int $fileSize = null;
     public ?string $form = null;
+    public ?array $forms = null;
     public ?int $generation = null;
     public ?int $id = null;
-    public ?string $model_format = null;
-    public ?string $model_url = null;
+    public ?string $modelFormat = null;
+    public ?string $modelUrl = null;
     public ?string $name = null;
-    public ?string $texture_url = null;
-    public ?string $thumbnail_url = null;
+    public ?string $textureUrl = null;
+    public ?string $thumbnailUrl = null;
     public ?array $type = null;
 }
 
@@ -37,16 +38,17 @@ class PokemonLoadMatch
 /** Request payload for Pokemon#list. */
 class PokemonListMatch
 {
-    public ?array $available_form = null;
-    public ?int $file_size = null;
+    public ?array $availableForms = null;
+    public ?int $fileSize = null;
     public ?string $form = null;
+    public ?array $forms = null;
     public ?int $generation = null;
     public ?int $id = null;
-    public ?string $model_format = null;
-    public ?string $model_url = null;
+    public ?string $modelFormat = null;
+    public ?string $modelUrl = null;
     public ?string $name = null;
-    public ?string $texture_url = null;
-    public ?string $thumbnail_url = null;
+    public ?string $textureUrl = null;
+    public ?string $thumbnailUrl = null;
     public ?array $type = null;
 }
 

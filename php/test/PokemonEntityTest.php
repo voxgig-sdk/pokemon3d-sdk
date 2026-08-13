@@ -72,7 +72,7 @@ class PokemonEntityTest extends TestCase
         // The basic flow consumes synthetic IDs from the fixture. In live mode
         // without an *_ENTID env override, those IDs hit the live API and 4xx.
         if (!empty($setup["synthetic_only"])) {
-            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set POKEMON_D_TEST_POKEMON_ENTID JSON to run live");
+            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set POKEMON3D_TEST_POKEMON_ENTID JSON to run live");
             return;
         }
         $client = $setup["client"];
@@ -97,7 +97,7 @@ class PokemonEntityTest extends TestCase
             "id" => $pokemon_ref01_data["id"],
         ];
         $pokemon_ref01_data_dt0_loaded = $pokemon_ref01_ent->load($pokemon_ref01_match_dt0, null);
-        $pokemon_ref01_data_dt0_load_result = Helpers::to_map($pokemon_ref01_data_dt0_loaded);
+        $pokemon_ref01_data_dt0_load_result = Helpers::to_map(is_object($pokemon_ref01_data_dt0_loaded) && method_exists($pokemon_ref01_data_dt0_loaded, 'data_get') ? $pokemon_ref01_data_dt0_loaded->data_get() : $pokemon_ref01_data_dt0_loaded);
         $this->assertNotNull($pokemon_ref01_data_dt0_load_result);
         $this->assertEquals($pokemon_ref01_data_dt0_load_result["id"], $pokemon_ref01_data["id"]);
 
@@ -126,22 +126,22 @@ function pokemon_basic_setup($extra)
     // Detect ENTID env override before envOverride consumes it. When live
     // mode is on without a real override, the basic test runs against synthetic
     // IDs from the fixture and 4xx's. Surface this so the test can skip.
-    $entid_env_raw = getenv("POKEMON_D_TEST_POKEMON_ENTID");
+    $entid_env_raw = getenv("POKEMON3D_TEST_POKEMON_ENTID");
     $idmap_overridden = $entid_env_raw !== false && str_starts_with(trim($entid_env_raw), "{");
 
     $env = Runner::env_override([
-        "POKEMON_D_TEST_POKEMON_ENTID" => $idmap,
-        "POKEMON_D_TEST_LIVE" => "FALSE",
-        "POKEMON_D_TEST_EXPLAIN" => "FALSE",
+        "POKEMON3D_TEST_POKEMON_ENTID" => $idmap,
+        "POKEMON3D_TEST_LIVE" => "FALSE",
+        "POKEMON3D_TEST_EXPLAIN" => "FALSE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
-        $env["POKEMON_D_TEST_POKEMON_ENTID"]);
+        $env["POKEMON3D_TEST_POKEMON_ENTID"]);
     if ($idmap_resolved === null) {
         $idmap_resolved = Helpers::to_map($idmap);
     }
 
-    if ($env["POKEMON_D_TEST_LIVE"] === "TRUE") {
+    if ($env["POKEMON3D_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
             ],
@@ -150,13 +150,13 @@ function pokemon_basic_setup($extra)
         $client = new Pokemon3dSDK(Helpers::to_map($merged_opts));
     }
 
-    $live = $env["POKEMON_D_TEST_LIVE"] === "TRUE";
+    $live = $env["POKEMON3D_TEST_LIVE"] === "TRUE";
     return [
         "client" => $client,
         "data" => $entity_data,
         "idmap" => $idmap_resolved,
         "env" => $env,
-        "explain" => $env["POKEMON_D_TEST_EXPLAIN"] === "TRUE",
+        "explain" => $env["POKEMON3D_TEST_EXPLAIN"] === "TRUE",
         "live" => $live,
         "synthetic_only" => $live && !$idmap_overridden,
         "now" => (int)(microtime(true) * 1000),

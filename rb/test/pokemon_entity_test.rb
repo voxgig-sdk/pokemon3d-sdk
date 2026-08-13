@@ -62,7 +62,7 @@ class PokemonEntityTest < Minitest::Test
     # The basic flow consumes synthetic IDs from the fixture. In live mode
     # without an *_ENTID env override, those IDs hit the live API and 4xx.
     if setup[:synthetic_only]
-      skip "live entity test uses synthetic IDs from fixture — set POKEMON_D_TEST_POKEMON_ENTID JSON to run live"
+      skip "live entity test uses synthetic IDs from fixture — set POKEMON3D_TEST_POKEMON_ENTID JSON to run live"
       return
     end
     client = setup[:client]
@@ -87,7 +87,7 @@ class PokemonEntityTest < Minitest::Test
       "id" => pokemon_ref01_data["id"],
     }
     pokemon_ref01_data_dt0_loaded = pokemon_ref01_ent.load(pokemon_ref01_match_dt0, nil)
-    pokemon_ref01_data_dt0_load_result = Helpers.to_map(pokemon_ref01_data_dt0_loaded)
+    pokemon_ref01_data_dt0_load_result = Helpers.to_map(pokemon_ref01_data_dt0_loaded.respond_to?(:data_get) ? pokemon_ref01_data_dt0_loaded.data_get : pokemon_ref01_data_dt0_loaded)
     assert !pokemon_ref01_data_dt0_load_result.nil?
     assert_equal pokemon_ref01_data_dt0_load_result["id"], pokemon_ref01_data["id"]
 
@@ -120,22 +120,22 @@ def pokemon_basic_setup(extra)
   # Detect ENTID env override before envOverride consumes it. When live
   # mode is on without a real override, the basic test runs against synthetic
   # IDs from the fixture and 4xx's. Surface this so the test can skip.
-  entid_env_raw = ENV["POKEMON_D_TEST_POKEMON_ENTID"]
+  entid_env_raw = ENV["POKEMON3D_TEST_POKEMON_ENTID"]
   idmap_overridden = !entid_env_raw.nil? && entid_env_raw.strip.start_with?("{")
 
   env = Runner.env_override({
-    "POKEMON_D_TEST_POKEMON_ENTID" => idmap,
-    "POKEMON_D_TEST_LIVE" => "FALSE",
-    "POKEMON_D_TEST_EXPLAIN" => "FALSE",
+    "POKEMON3D_TEST_POKEMON_ENTID" => idmap,
+    "POKEMON3D_TEST_LIVE" => "FALSE",
+    "POKEMON3D_TEST_EXPLAIN" => "FALSE",
   })
 
   idmap_resolved = Helpers.to_map(
-    env["POKEMON_D_TEST_POKEMON_ENTID"])
+    env["POKEMON3D_TEST_POKEMON_ENTID"])
   if idmap_resolved.nil?
     idmap_resolved = Helpers.to_map(idmap)
   end
 
-  if env["POKEMON_D_TEST_LIVE"] == "TRUE"
+  if env["POKEMON3D_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
       },
@@ -144,13 +144,13 @@ def pokemon_basic_setup(extra)
     client = Pokemon3dSDK.new(Helpers.to_map(merged_opts))
   end
 
-  live = env["POKEMON_D_TEST_LIVE"] == "TRUE"
+  live = env["POKEMON3D_TEST_LIVE"] == "TRUE"
   {
     client: client,
     data: entity_data,
     idmap: idmap_resolved,
     env: env,
-    explain: env["POKEMON_D_TEST_EXPLAIN"] == "TRUE",
+    explain: env["POKEMON3D_TEST_EXPLAIN"] == "TRUE",
     live: live,
     synthetic_only: live && !idmap_overridden,
     now: (Time.now.to_f * 1000).to_i,

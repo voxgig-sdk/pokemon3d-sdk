@@ -35,7 +35,9 @@ const client = new Pokemon3dSDK()
 
 ### 2. List pokemon records
 
-`list()` resolves to an array of Pokemon objects — iterate it directly:
+`list()` resolves to an array of Pokemon ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const pokemons = await client.Pokemon().list()
@@ -133,7 +135,8 @@ Create a mock client for unit testing — no server required:
 const client = Pokemon3dSDK.test()
 
 const pokemon = await client.Pokemon().list()
-// pokemon is a bare entity populated with mock response data
+// pokemon is the entity, populated with mock response data
+// — call pokemon.data() for the record itself
 console.log(pokemon)
 ```
 
@@ -299,16 +302,17 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `available_form` |  |
-| `file_size` |  |
+| `availableForms` |  |
+| `fileSize` |  |
 | `form` |  |
+| `forms` |  |
 | `generation` |  |
 | `id` |  |
-| `model_format` |  |
-| `model_url` |  |
+| `modelFormat` |  |
+| `modelUrl` |  |
 | `name` |  |
-| `texture_url` |  |
-| `thumbnail_url` |  |
+| `textureUrl` |  |
+| `thumbnailUrl` |  |
 | `type` |  |
 
 Operations: list, load.
@@ -335,16 +339,17 @@ Create an instance: `const pokemon = client.Pokemon()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `available_form` | `any[]` |  |
-| `file_size` | `number` |  |
+| `availableForms` | `any[]` |  |
+| `fileSize` | `number` |  |
 | `form` | `string` |  |
+| `forms` | `any[]` |  |
 | `generation` | `number` |  |
 | `id` | `number` |  |
-| `model_format` | `string` |  |
-| `model_url` | `string` |  |
+| `modelFormat` | `string` |  |
+| `modelUrl` | `string` |  |
 | `name` | `string` |  |
-| `texture_url` | `string` |  |
-| `thumbnail_url` | `string` |  |
+| `textureUrl` | `string` |  |
+| `thumbnailUrl` | `string` |  |
 | `type` | `any[]` |  |
 
 #### Example: Load

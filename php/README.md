@@ -38,7 +38,7 @@ try {
     // list() returns an array of Pokemon records — iterate directly.
     $pokemons = $client->Pokemon()->list();
     foreach ($pokemons as $item) {
-        echo $item["id"] . " " . $item["available_form"] . "\n";
+        echo $item["id"] . " " . $item["availableForms"] . "\n";
     }
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -49,7 +49,7 @@ try {
 
 ```php
 try {
-    // load() returns the bare Pokemon record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Pokemon record (throws on error).
     $pokemon = $client->Pokemon()->load(["id" => "example_id"]);
     print_r($pokemon);
 } catch (\Throwable $err) {
@@ -140,7 +140,8 @@ $client = Pokemon3dSDK::test([
     "entity" => ["pokemon" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $pokemon = $client->Pokemon()->list();
 print_r($pokemon);
 ```
@@ -240,7 +241,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -262,16 +263,17 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `available_form` |  |
-| `file_size` |  |
+| `availableForms` |  |
+| `fileSize` |  |
 | `form` |  |
+| `forms` |  |
 | `generation` |  |
 | `id` |  |
-| `model_format` |  |
-| `model_url` |  |
+| `modelFormat` |  |
+| `modelUrl` |  |
 | `name` |  |
-| `texture_url` |  |
-| `thumbnail_url` |  |
+| `textureUrl` |  |
+| `thumbnailUrl` |  |
 | `type` |  |
 
 Operations: List, Load.
@@ -298,22 +300,23 @@ Create an instance: `$pokemon = $client->Pokemon();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `available_form` | `array` |  |
-| `file_size` | `int` |  |
+| `availableForms` | `array` |  |
+| `fileSize` | `int` |  |
 | `form` | `string` |  |
+| `forms` | `array` |  |
 | `generation` | `int` |  |
 | `id` | `int` |  |
-| `model_format` | `string` |  |
-| `model_url` | `string` |  |
+| `modelFormat` | `string` |  |
+| `modelUrl` | `string` |  |
 | `name` | `string` |  |
-| `texture_url` | `string` |  |
-| `thumbnail_url` | `string` |  |
+| `textureUrl` | `string` |  |
+| `thumbnailUrl` | `string` |  |
 | `type` | `array` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Pokemon record (throws on error).
+// load() returns the ENTITY — call data_get() for the Pokemon record (throws on error).
 $pokemon = $client->Pokemon()->load(["id" => "pokemon_id"]);
 ```
 

@@ -7,32 +7,34 @@
 -- edit by hand.
 
 ---@class Pokemon
----@field available_form? table
----@field file_size? number
+---@field availableForms? table
+---@field fileSize? number
 ---@field form? string
+---@field forms? table
 ---@field generation? number
 ---@field id? number
----@field model_format? string
----@field model_url? string
+---@field modelFormat? string
+---@field modelUrl? string
 ---@field name? string
----@field texture_url? string
----@field thumbnail_url? string
+---@field textureUrl? string
+---@field thumbnailUrl? string
 ---@field type? table
 
 ---@class PokemonLoadMatch
 ---@field id string
 
 ---@class PokemonListMatch
----@field available_form? table
----@field file_size? number
+---@field availableForms? table
+---@field fileSize? number
 ---@field form? string
+---@field forms? table
 ---@field generation? number
 ---@field id? number
----@field model_format? string
----@field model_url? string
+---@field modelFormat? string
+---@field modelUrl? string
 ---@field name? string
----@field texture_url? string
----@field thumbnail_url? string
+---@field textureUrl? string
+---@field thumbnailUrl? string
 ---@field type? table
 
 local M = {}

@@ -87,16 +87,17 @@ pokemon = client.Pokemon()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `available_form` | `list` | No |  |
-| `file_size` | `int` | No |  |
+| `availableForms` | `list` | No |  |
+| `fileSize` | `int` | No |  |
 | `form` | `str` | No |  |
+| `forms` | `list` | No |  |
 | `generation` | `int` | No |  |
 | `id` | `int` | No |  |
-| `model_format` | `str` | No |  |
-| `model_url` | `str` | No |  |
+| `modelFormat` | `str` | No |  |
+| `modelUrl` | `str` | No |  |
 | `name` | `str` | No |  |
-| `texture_url` | `str` | No |  |
-| `thumbnail_url` | `str` | No |  |
+| `textureUrl` | `str` | No |  |
+| `thumbnailUrl` | `str` | No |  |
 | `type` | `list` | No |  |
 
 ### Operations

@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ Pokemon3dUtility.registrar = ->(u) {
   u.prepare_params = Pokemon3dUtilities::PrepareParams
   u.prepare_path = Pokemon3dUtilities::PreparePath
   u.prepare_query = Pokemon3dUtilities::PrepareQuery
+  u.graphql_body = Pokemon3dUtilities::GraphqlBody
+  u.graphql_errors = Pokemon3dUtilities::GraphqlErrors
   u.result_basic = Pokemon3dUtilities::ResultBasic
   u.result_body = Pokemon3dUtilities::ResultBody
   u.result_headers = Pokemon3dUtilities::ResultHeaders

@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ Pokemon3dUtility::setRegistrar(function (Pokemon3dUtility $u): void {
     $u->prepare_params = [Pokemon3dPrepareParams::class, 'call'];
     $u->prepare_path = [Pokemon3dPreparePath::class, 'call'];
     $u->prepare_query = [Pokemon3dPrepareQuery::class, 'call'];
+    $u->graphql_body = [Pokemon3dGraphql::class, 'body'];
+    $u->graphql_errors = [Pokemon3dGraphql::class, 'errors'];
     $u->result_basic = [Pokemon3dResultBasic::class, 'call'];
     $u->result_body = [Pokemon3dResultBody::class, 'call'];
     $u->result_headers = [Pokemon3dResultHeaders::class, 'call'];

@@ -92,16 +92,17 @@ $pokemon = $client->Pokemon();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `available_form` | `array` | No |  |
-| `file_size` | `int` | No |  |
+| `availableForms` | `array` | No |  |
+| `fileSize` | `int` | No |  |
 | `form` | `string` | No |  |
+| `forms` | `array` | No |  |
 | `generation` | `int` | No |  |
 | `id` | `int` | No |  |
-| `model_format` | `string` | No |  |
-| `model_url` | `string` | No |  |
+| `modelFormat` | `string` | No |  |
+| `modelUrl` | `string` | No |  |
 | `name` | `string` | No |  |
-| `texture_url` | `string` | No |  |
-| `thumbnail_url` | `string` | No |  |
+| `textureUrl` | `string` | No |  |
+| `thumbnailUrl` | `string` | No |  |
 | `type` | `array` | No |  |
 
 ### Operations

@@ -93,16 +93,17 @@ pokemon = client.Pokemon
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `available_form` | `Array` | No |  |
-| `file_size` | `Integer` | No |  |
+| `availableForms` | `Array` | No |  |
+| `fileSize` | `Integer` | No |  |
 | `form` | `String` | No |  |
+| `forms` | `Array` | No |  |
 | `generation` | `Integer` | No |  |
 | `id` | `Integer` | No |  |
-| `model_format` | `String` | No |  |
-| `model_url` | `String` | No |  |
+| `modelFormat` | `String` | No |  |
+| `modelUrl` | `String` | No |  |
 | `name` | `String` | No |  |
-| `texture_url` | `String` | No |  |
-| `thumbnail_url` | `String` | No |  |
+| `textureUrl` | `String` | No |  |
+| `thumbnailUrl` | `String` | No |  |
 | `type` | `Array` | No |  |
 
 ### Operations

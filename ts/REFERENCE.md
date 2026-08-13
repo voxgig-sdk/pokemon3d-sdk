@@ -116,16 +116,17 @@ const pokemon = client.Pokemon()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `available_form` | `any[]` | No |  |
-| `file_size` | `number` | No |  |
+| `availableForms` | `any[]` | No |  |
+| `fileSize` | `number` | No |  |
 | `form` | `string` | No |  |
+| `forms` | `any[]` | No |  |
 | `generation` | `number` | No |  |
 | `id` | `number` | No |  |
-| `model_format` | `string` | No |  |
-| `model_url` | `string` | No |  |
+| `modelFormat` | `string` | No |  |
+| `modelUrl` | `string` | No |  |
 | `name` | `string` | No |  |
-| `texture_url` | `string` | No |  |
-| `thumbnail_url` | `string` | No |  |
+| `textureUrl` | `string` | No |  |
+| `thumbnailUrl` | `string` | No |  |
 | `type` | `any[]` | No |  |
 
 ### Operations

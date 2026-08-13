@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = Pokemon3dSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = Pokemon3dSDK.test({
+  entity: {
+    pokemon: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const pokemons = await client.Pokemon().list()
-// pokemons is an array of bare Pokemon records populated with mock data
+// pokemons is an array of Pokemon entities, populated with mock data
+// — call pokemons[0].data() for the record itself
 console.log(pokemons)
 ```
 
@@ -110,7 +119,7 @@ import { Pokemon3dSDK } from '@voxgig-sdk/pokemon3d'
 
 const client = new Pokemon3dSDK()
 
-// List all pokemons (returns Pokemon[])
+// List all pokemons (returns PokemonEntity[] — .data() for the record)
 const pokemons = await client.Pokemon().list()
 for (const pokemon of pokemons) {
   console.log(pokemon)
@@ -191,7 +200,7 @@ $client = new Pokemon3dSDK();
 $pokemons = $client->Pokemon()->list();
 print_r($pokemons);
 
-// Load a specific pokemon (returns the bare record; throws on error)
+// Load a specific pokemon (returns the ENTITY; call data_get() for the record; throws on error)
 $pokemon = $client->Pokemon()->load(["id" => "example_id"]);
 print_r($pokemon);
 ```
@@ -222,7 +231,7 @@ client = Pokemon3dSDK.new
 pokemons = client.Pokemon.list
 puts pokemons
 
-# Load a specific pokemon (returns the bare record; raises on error)
+# Load a specific pokemon (returns the ENTITY; call data_get for the record)
 pokemon = client.Pokemon.load({ "id" => "example_id" })
 puts pokemon
 ```
@@ -359,6 +368,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://documenter.getpostman.com/view/29725199/2sAYX8KMU8](https://documenter.getpostman.com/view/29725199/2sAYX8KMU8)
 

@@ -241,16 +241,17 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `available_form` |  |
-| `file_size` |  |
+| `availableForms` |  |
+| `fileSize` |  |
 | `form` |  |
+| `forms` |  |
 | `generation` |  |
 | `id` |  |
-| `model_format` |  |
-| `model_url` |  |
+| `modelFormat` |  |
+| `modelUrl` |  |
 | `name` |  |
-| `texture_url` |  |
-| `thumbnail_url` |  |
+| `textureUrl` |  |
+| `thumbnailUrl` |  |
 | `type` |  |
 
 Operations: List, Load.
@@ -277,16 +278,17 @@ Create an instance: `local pokemon = client:Pokemon(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `available_form` | `table` |  |
-| `file_size` | `number` |  |
+| `availableForms` | `table` |  |
+| `fileSize` | `number` |  |
 | `form` | `string` |  |
+| `forms` | `table` |  |
 | `generation` | `number` |  |
 | `id` | `number` |  |
-| `model_format` | `string` |  |
-| `model_url` | `string` |  |
+| `modelFormat` | `string` |  |
+| `modelUrl` | `string` |  |
 | `name` | `string` |  |
-| `texture_url` | `string` |  |
-| `thumbnail_url` | `string` |  |
+| `textureUrl` | `string` |  |
+| `thumbnailUrl` | `string` |  |
 | `type` | `table` |  |
 
 #### Example: Load
