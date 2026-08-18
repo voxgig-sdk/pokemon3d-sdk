@@ -40,7 +40,7 @@ class Pokemon3dSDK
         $utility = new Pokemon3dUtility();
         $this->_utility = $utility;
 
-        $config = Pokemon3dConfig::make_config();
+        $config = Pokemon3dConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

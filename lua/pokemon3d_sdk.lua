@@ -40,7 +40,7 @@ function Pokemon3dSDK.new(options)
   local utility = Utility.new()
   self._utility = utility
 
-  local config = require("config")()
+  local config = require("config_shared")()
 
   self._rootctx = utility.make_context({
     client = self,

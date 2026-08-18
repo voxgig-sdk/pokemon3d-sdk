@@ -23,6 +23,7 @@ build = {
   modules = {
     ["pokemon3d_sdk"] = "pokemon3d_sdk.lua",
     ["config"] = "config.lua",
+    ["config_shared"] = "config_shared.lua",
     ["features"] = "features.lua",
   }
 }

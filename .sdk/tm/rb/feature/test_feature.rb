@@ -1,9 +1,9 @@
-# ProjectName SDK test feature
+# Pokemon3d SDK test feature
 
 require_relative '../utility/struct/voxgig_struct'
 require_relative 'base_feature'
 
-class ProjectNameTestFeature < ProjectNameBaseFeature
+class Pokemon3dTestFeature < Pokemon3dBaseFeature
   # The `body.<key>` form of an op's response transform: the mock wraps its
   # payload in <key> so the transform can unwrap it again.
   ENVELOPE_RES_RE = /\A`body\.([^`.]+)`\z/

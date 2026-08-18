@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from pokemon3d_sdk.config import make_config
+from pokemon3d_sdk.config import shared_config
 from pokemon3d_sdk.features import _make_feature
 from pokemon3d_sdk.core.control import Pokemon3dControl
 from pokemon3d_sdk.core.error import Pokemon3dError
@@ -24,7 +24,7 @@ from pokemon3d_sdk.core.spec import Pokemon3dSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 

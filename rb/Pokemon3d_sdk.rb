@@ -28,7 +28,7 @@ class Pokemon3dSDK
     utility = Pokemon3dUtility.new
     @_utility = utility
 
-    config = Pokemon3dConfig.make_config
+    config = Pokemon3dConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
