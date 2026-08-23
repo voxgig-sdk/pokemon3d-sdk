@@ -93,18 +93,18 @@ pokemon = client.Pokemon
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `availableForms` | `Array` | No |  |
-| `fileSize` | `Integer` | No |  |
-| `form` | `String` | No |  |
-| `forms` | `Array` | No |  |
-| `generation` | `Integer` | No |  |
-| `id` | `Integer` | No |  |
-| `modelFormat` | `String` | No |  |
-| `modelUrl` | `String` | No |  |
-| `name` | `String` | No |  |
-| `textureUrl` | `String` | No |  |
-| `thumbnailUrl` | `String` | No |  |
-| `type` | `Array` | No |  |
+| `availableForms` | `Array` | No | All available forms for this Pokémon |
+| `fileSize` | `Integer` | No | Size of the model file in bytes |
+| `form` | `String` | No | Current form of the Pokémon |
+| `forms` | `Array` | No | Available forms for this Pokémon |
+| `generation` | `Integer` | No | Generation the Pokémon belongs to |
+| `id` | `Integer` | No | Unique identifier for the Pokémon |
+| `modelFormat` | `String` | No | Format of the 3D model |
+| `modelUrl` | `String` | No | URL to the 3D model file (GLB/GLTF format) |
+| `name` | `String` | No | Name of the Pokémon |
+| `textureUrl` | `String` | No | URL to the texture file |
+| `thumbnailUrl` | `String` | No | URL to the thumbnail image |
+| `type` | `Array` | No | Pokémon types |
 
 ### Operations
 

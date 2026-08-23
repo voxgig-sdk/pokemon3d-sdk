@@ -253,18 +253,18 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `availableForms` |  |
-| `fileSize` |  |
-| `form` |  |
-| `forms` |  |
-| `generation` |  |
-| `id` |  |
-| `modelFormat` |  |
-| `modelUrl` |  |
-| `name` |  |
-| `textureUrl` |  |
-| `thumbnailUrl` |  |
-| `type` |  |
+| `availableForms` | All available forms for this Pokémon |
+| `fileSize` | Size of the model file in bytes |
+| `form` | Current form of the Pokémon |
+| `forms` | Available forms for this Pokémon |
+| `generation` | Generation the Pokémon belongs to |
+| `id` | Unique identifier for the Pokémon |
+| `modelFormat` | Format of the 3D model |
+| `modelUrl` | URL to the 3D model file (GLB/GLTF format) |
+| `name` | Name of the Pokémon |
+| `textureUrl` | URL to the texture file |
+| `thumbnailUrl` | URL to the thumbnail image |
+| `type` | Pokémon types |
 
 Operations: List, Load.
 
@@ -290,18 +290,18 @@ Create an instance: `pokemon = client.Pokemon`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `availableForms` | `Array` |  |
-| `fileSize` | `Integer` |  |
-| `form` | `String` |  |
-| `forms` | `Array` |  |
-| `generation` | `Integer` |  |
-| `id` | `Integer` |  |
-| `modelFormat` | `String` |  |
-| `modelUrl` | `String` |  |
-| `name` | `String` |  |
-| `textureUrl` | `String` |  |
-| `thumbnailUrl` | `String` |  |
-| `type` | `Array` |  |
+| `availableForms` | `Array` | All available forms for this Pokémon |
+| `fileSize` | `Integer` | Size of the model file in bytes |
+| `form` | `String` | Current form of the Pokémon |
+| `forms` | `Array` | Available forms for this Pokémon |
+| `generation` | `Integer` | Generation the Pokémon belongs to |
+| `id` | `Integer` | Unique identifier for the Pokémon |
+| `modelFormat` | `String` | Format of the 3D model |
+| `modelUrl` | `String` | URL to the 3D model file (GLB/GLTF format) |
+| `name` | `String` | Name of the Pokémon |
+| `textureUrl` | `String` | URL to the texture file |
+| `thumbnailUrl` | `String` | URL to the thumbnail image |
+| `type` | `Array` | Pokémon types |
 
 #### Example: Load
 

@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "Pokemon3d",
+			"slug": "pokemon3d",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -33,50 +36,62 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "availableForms",
+						"short": "All available forms for this Pokémon",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "fileSize",
+						"short": "Size of the model file in bytes",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "form",
+						"short": "Current form of the Pokémon",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "forms",
+						"short": "Available forms for this Pokémon",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "generation",
+						"short": "Generation the Pokémon belongs to",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier for the Pokémon",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "modelFormat",
+						"short": "Format of the 3D model",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "modelUrl",
+						"short": "URL to the 3D model file (GLB/GLTF format)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "Name of the Pokémon",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "textureUrl",
+						"short": "URL to the texture file",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "thumbnailUrl",
+						"short": "URL to the thumbnail image",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "type",
+						"short": "Pokémon types",
 						"type": "`$ARRAY`",
 					},
 				},

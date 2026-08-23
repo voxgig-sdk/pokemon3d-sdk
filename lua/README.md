@@ -241,18 +241,18 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `availableForms` |  |
-| `fileSize` |  |
-| `form` |  |
-| `forms` |  |
-| `generation` |  |
-| `id` |  |
-| `modelFormat` |  |
-| `modelUrl` |  |
-| `name` |  |
-| `textureUrl` |  |
-| `thumbnailUrl` |  |
-| `type` |  |
+| `availableForms` | All available forms for this Pokémon |
+| `fileSize` | Size of the model file in bytes |
+| `form` | Current form of the Pokémon |
+| `forms` | Available forms for this Pokémon |
+| `generation` | Generation the Pokémon belongs to |
+| `id` | Unique identifier for the Pokémon |
+| `modelFormat` | Format of the 3D model |
+| `modelUrl` | URL to the 3D model file (GLB/GLTF format) |
+| `name` | Name of the Pokémon |
+| `textureUrl` | URL to the texture file |
+| `thumbnailUrl` | URL to the thumbnail image |
+| `type` | Pokémon types |
 
 Operations: List, Load.
 
@@ -278,18 +278,18 @@ Create an instance: `local pokemon = client:Pokemon(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `availableForms` | `table` |  |
-| `fileSize` | `number` |  |
-| `form` | `string` |  |
-| `forms` | `table` |  |
-| `generation` | `number` |  |
-| `id` | `number` |  |
-| `modelFormat` | `string` |  |
-| `modelUrl` | `string` |  |
-| `name` | `string` |  |
-| `textureUrl` | `string` |  |
-| `thumbnailUrl` | `string` |  |
-| `type` | `table` |  |
+| `availableForms` | `table` | All available forms for this Pokémon |
+| `fileSize` | `number` | Size of the model file in bytes |
+| `form` | `string` | Current form of the Pokémon |
+| `forms` | `table` | Available forms for this Pokémon |
+| `generation` | `number` | Generation the Pokémon belongs to |
+| `id` | `number` | Unique identifier for the Pokémon |
+| `modelFormat` | `string` | Format of the 3D model |
+| `modelUrl` | `string` | URL to the 3D model file (GLB/GLTF format) |
+| `name` | `string` | Name of the Pokémon |
+| `textureUrl` | `string` | URL to the texture file |
+| `thumbnailUrl` | `string` | URL to the thumbnail image |
+| `type` | `table` | Pokémon types |
 
 #### Example: Load
 

@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -302,18 +302,18 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `availableForms` |  |
-| `fileSize` |  |
-| `form` |  |
-| `forms` |  |
-| `generation` |  |
-| `id` |  |
-| `modelFormat` |  |
-| `modelUrl` |  |
-| `name` |  |
-| `textureUrl` |  |
-| `thumbnailUrl` |  |
-| `type` |  |
+| `availableForms` | All available forms for this Pokémon |
+| `fileSize` | Size of the model file in bytes |
+| `form` | Current form of the Pokémon |
+| `forms` | Available forms for this Pokémon |
+| `generation` | Generation the Pokémon belongs to |
+| `id` | Unique identifier for the Pokémon |
+| `modelFormat` | Format of the 3D model |
+| `modelUrl` | URL to the 3D model file (GLB/GLTF format) |
+| `name` | Name of the Pokémon |
+| `textureUrl` | URL to the texture file |
+| `thumbnailUrl` | URL to the thumbnail image |
+| `type` | Pokémon types |
 
 Operations: list, load.
 
@@ -339,18 +339,18 @@ Create an instance: `const pokemon = client.Pokemon()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `availableForms` | `any[]` |  |
-| `fileSize` | `number` |  |
-| `form` | `string` |  |
-| `forms` | `any[]` |  |
-| `generation` | `number` |  |
-| `id` | `number` |  |
-| `modelFormat` | `string` |  |
-| `modelUrl` | `string` |  |
-| `name` | `string` |  |
-| `textureUrl` | `string` |  |
-| `thumbnailUrl` | `string` |  |
-| `type` | `any[]` |  |
+| `availableForms` | `any[]` | All available forms for this Pokémon |
+| `fileSize` | `number` | Size of the model file in bytes |
+| `form` | `string` | Current form of the Pokémon |
+| `forms` | `any[]` | Available forms for this Pokémon |
+| `generation` | `number` | Generation the Pokémon belongs to |
+| `id` | `number` | Unique identifier for the Pokémon |
+| `modelFormat` | `string` | Format of the 3D model |
+| `modelUrl` | `string` | URL to the 3D model file (GLB/GLTF format) |
+| `name` | `string` | Name of the Pokémon |
+| `textureUrl` | `string` | URL to the texture file |
+| `thumbnailUrl` | `string` | URL to the thumbnail image |
+| `type` | `any[]` | Pokémon types |
 
 #### Example: Load
 

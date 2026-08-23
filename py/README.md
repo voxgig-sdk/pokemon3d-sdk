@@ -256,18 +256,18 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `availableForms` |  |
-| `fileSize` |  |
-| `form` |  |
-| `forms` |  |
-| `generation` |  |
-| `id` |  |
-| `modelFormat` |  |
-| `modelUrl` |  |
-| `name` |  |
-| `textureUrl` |  |
-| `thumbnailUrl` |  |
-| `type` |  |
+| `availableForms` | All available forms for this Pokémon |
+| `fileSize` | Size of the model file in bytes |
+| `form` | Current form of the Pokémon |
+| `forms` | Available forms for this Pokémon |
+| `generation` | Generation the Pokémon belongs to |
+| `id` | Unique identifier for the Pokémon |
+| `modelFormat` | Format of the 3D model |
+| `modelUrl` | URL to the 3D model file (GLB/GLTF format) |
+| `name` | Name of the Pokémon |
+| `textureUrl` | URL to the texture file |
+| `thumbnailUrl` | URL to the thumbnail image |
+| `type` | Pokémon types |
 
 Operations: List, Load.
 
@@ -293,18 +293,18 @@ Create an instance: `pokemon = client.Pokemon()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `availableForms` | `list` |  |
-| `fileSize` | `int` |  |
-| `form` | `str` |  |
-| `forms` | `list` |  |
-| `generation` | `int` |  |
-| `id` | `int` |  |
-| `modelFormat` | `str` |  |
-| `modelUrl` | `str` |  |
-| `name` | `str` |  |
-| `textureUrl` | `str` |  |
-| `thumbnailUrl` | `str` |  |
-| `type` | `list` |  |
+| `availableForms` | `list` | All available forms for this Pokémon |
+| `fileSize` | `int` | Size of the model file in bytes |
+| `form` | `str` | Current form of the Pokémon |
+| `forms` | `list` | Available forms for this Pokémon |
+| `generation` | `int` | Generation the Pokémon belongs to |
+| `id` | `int` | Unique identifier for the Pokémon |
+| `modelFormat` | `str` | Format of the 3D model |
+| `modelUrl` | `str` | URL to the 3D model file (GLB/GLTF format) |
+| `name` | `str` | Name of the Pokémon |
+| `textureUrl` | `str` | URL to the texture file |
+| `thumbnailUrl` | `str` | URL to the thumbnail image |
+| `type` | `list` | Pokémon types |
 
 #### Example: Load
 

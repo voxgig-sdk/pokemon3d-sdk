@@ -36,72 +36,84 @@
               "active": true,
               "name": "availableForms",
               "req": false,
+              "short": "All available forms for this Pokémon",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "fileSize",
               "req": false,
+              "short": "Size of the model file in bytes",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "form",
               "req": false,
+              "short": "Current form of the Pokémon",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "forms",
               "req": false,
+              "short": "Available forms for this Pokémon",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "generation",
               "req": false,
+              "short": "Generation the Pokémon belongs to",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the Pokémon",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "modelFormat",
               "req": false,
+              "short": "Format of the 3D model",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "modelUrl",
               "req": false,
+              "short": "URL to the 3D model file (GLB/GLTF format)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "Name of the Pokémon",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "textureUrl",
               "req": false,
+              "short": "URL to the texture file",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "thumbnailUrl",
               "req": false,
+              "short": "URL to the thumbnail image",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "type",
               "req": false,
+              "short": "Pokémon types",
               "type": "`$ARRAY`"
             }
           ],

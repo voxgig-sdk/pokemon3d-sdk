@@ -98,18 +98,18 @@ fmt.Println(pokemon.GetName()) // "pokemon"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `availableForms` | `[]any` | No |  |
-| `fileSize` | `int` | No |  |
-| `form` | `string` | No |  |
-| `forms` | `[]any` | No |  |
-| `generation` | `int` | No |  |
-| `id` | `int` | No |  |
-| `modelFormat` | `string` | No |  |
-| `modelUrl` | `string` | No |  |
-| `name` | `string` | No |  |
-| `textureUrl` | `string` | No |  |
-| `thumbnailUrl` | `string` | No |  |
-| `type` | `[]any` | No |  |
+| `availableForms` | `[]any` | No | All available forms for this Pokémon |
+| `fileSize` | `int` | No | Size of the model file in bytes |
+| `form` | `string` | No | Current form of the Pokémon |
+| `forms` | `[]any` | No | Available forms for this Pokémon |
+| `generation` | `int` | No | Generation the Pokémon belongs to |
+| `id` | `int` | No | Unique identifier for the Pokémon |
+| `modelFormat` | `string` | No | Format of the 3D model |
+| `modelUrl` | `string` | No | URL to the 3D model file (GLB/GLTF format) |
+| `name` | `string` | No | Name of the Pokémon |
+| `textureUrl` | `string` | No | URL to the texture file |
+| `thumbnailUrl` | `string` | No | URL to the thumbnail image |
+| `type` | `[]any` | No | Pokémon types |
 
 ### Operations
 

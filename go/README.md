@@ -6,7 +6,7 @@ The Golang SDK for the Pokemon3d API — an entity-oriented client using standar
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Pokemon(nil)` — each with the same small set of operations (`List`, `Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -269,18 +269,18 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"availableForms"` |  |
-| `"fileSize"` |  |
-| `"form"` |  |
-| `"forms"` |  |
-| `"generation"` |  |
-| `"id"` |  |
-| `"modelFormat"` |  |
-| `"modelUrl"` |  |
-| `"name"` |  |
-| `"textureUrl"` |  |
-| `"thumbnailUrl"` |  |
-| `"type"` |  |
+| `"availableForms"` | All available forms for this Pokémon |
+| `"fileSize"` | Size of the model file in bytes |
+| `"form"` | Current form of the Pokémon |
+| `"forms"` | Available forms for this Pokémon |
+| `"generation"` | Generation the Pokémon belongs to |
+| `"id"` | Unique identifier for the Pokémon |
+| `"modelFormat"` | Format of the 3D model |
+| `"modelUrl"` | URL to the 3D model file (GLB/GLTF format) |
+| `"name"` | Name of the Pokémon |
+| `"textureUrl"` | URL to the texture file |
+| `"thumbnailUrl"` | URL to the thumbnail image |
+| `"type"` | Pokémon types |
 
 Operations: List, Load.
 
@@ -306,18 +306,18 @@ Create an instance: `pokemon := client.Pokemon(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `availableForms` | `[]any` |  |
-| `fileSize` | `int` |  |
-| `form` | `string` |  |
-| `forms` | `[]any` |  |
-| `generation` | `int` |  |
-| `id` | `int` |  |
-| `modelFormat` | `string` |  |
-| `modelUrl` | `string` |  |
-| `name` | `string` |  |
-| `textureUrl` | `string` |  |
-| `thumbnailUrl` | `string` |  |
-| `type` | `[]any` |  |
+| `availableForms` | `[]any` | All available forms for this Pokémon |
+| `fileSize` | `int` | Size of the model file in bytes |
+| `form` | `string` | Current form of the Pokémon |
+| `forms` | `[]any` | Available forms for this Pokémon |
+| `generation` | `int` | Generation the Pokémon belongs to |
+| `id` | `int` | Unique identifier for the Pokémon |
+| `modelFormat` | `string` | Format of the 3D model |
+| `modelUrl` | `string` | URL to the 3D model file (GLB/GLTF format) |
+| `name` | `string` | Name of the Pokémon |
+| `textureUrl` | `string` | URL to the texture file |
+| `thumbnailUrl` | `string` | URL to the thumbnail image |
+| `type` | `[]any` | Pokémon types |
 
 #### Example: Load
 

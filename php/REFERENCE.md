@@ -92,18 +92,18 @@ $pokemon = $client->Pokemon();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `availableForms` | `array` | No |  |
-| `fileSize` | `int` | No |  |
-| `form` | `string` | No |  |
-| `forms` | `array` | No |  |
-| `generation` | `int` | No |  |
-| `id` | `int` | No |  |
-| `modelFormat` | `string` | No |  |
-| `modelUrl` | `string` | No |  |
-| `name` | `string` | No |  |
-| `textureUrl` | `string` | No |  |
-| `thumbnailUrl` | `string` | No |  |
-| `type` | `array` | No |  |
+| `availableForms` | `array` | No | All available forms for this Pokémon |
+| `fileSize` | `int` | No | Size of the model file in bytes |
+| `form` | `string` | No | Current form of the Pokémon |
+| `forms` | `array` | No | Available forms for this Pokémon |
+| `generation` | `int` | No | Generation the Pokémon belongs to |
+| `id` | `int` | No | Unique identifier for the Pokémon |
+| `modelFormat` | `string` | No | Format of the 3D model |
+| `modelUrl` | `string` | No | URL to the 3D model file (GLB/GLTF format) |
+| `name` | `string` | No | Name of the Pokémon |
+| `textureUrl` | `string` | No | URL to the texture file |
+| `thumbnailUrl` | `string` | No | URL to the thumbnail image |
+| `type` | `array` | No | Pokémon types |
 
 ### Operations
 

@@ -263,18 +263,18 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `availableForms` |  |
-| `fileSize` |  |
-| `form` |  |
-| `forms` |  |
-| `generation` |  |
-| `id` |  |
-| `modelFormat` |  |
-| `modelUrl` |  |
-| `name` |  |
-| `textureUrl` |  |
-| `thumbnailUrl` |  |
-| `type` |  |
+| `availableForms` | All available forms for this Pokémon |
+| `fileSize` | Size of the model file in bytes |
+| `form` | Current form of the Pokémon |
+| `forms` | Available forms for this Pokémon |
+| `generation` | Generation the Pokémon belongs to |
+| `id` | Unique identifier for the Pokémon |
+| `modelFormat` | Format of the 3D model |
+| `modelUrl` | URL to the 3D model file (GLB/GLTF format) |
+| `name` | Name of the Pokémon |
+| `textureUrl` | URL to the texture file |
+| `thumbnailUrl` | URL to the thumbnail image |
+| `type` | Pokémon types |
 
 Operations: List, Load.
 
@@ -300,18 +300,18 @@ Create an instance: `$pokemon = $client->Pokemon();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `availableForms` | `array` |  |
-| `fileSize` | `int` |  |
-| `form` | `string` |  |
-| `forms` | `array` |  |
-| `generation` | `int` |  |
-| `id` | `int` |  |
-| `modelFormat` | `string` |  |
-| `modelUrl` | `string` |  |
-| `name` | `string` |  |
-| `textureUrl` | `string` |  |
-| `thumbnailUrl` | `string` |  |
-| `type` | `array` |  |
+| `availableForms` | `array` | All available forms for this Pokémon |
+| `fileSize` | `int` | Size of the model file in bytes |
+| `form` | `string` | Current form of the Pokémon |
+| `forms` | `array` | Available forms for this Pokémon |
+| `generation` | `int` | Generation the Pokémon belongs to |
+| `id` | `int` | Unique identifier for the Pokémon |
+| `modelFormat` | `string` | Format of the 3D model |
+| `modelUrl` | `string` | URL to the 3D model file (GLB/GLTF format) |
+| `name` | `string` | Name of the Pokémon |
+| `textureUrl` | `string` | URL to the texture file |
+| `thumbnailUrl` | `string` | URL to the thumbnail image |
+| `type` | `array` | Pokémon types |
 
 #### Example: Load
 

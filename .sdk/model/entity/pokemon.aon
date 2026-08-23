@@ -8,61 +8,73 @@ main: kit: entity: pokemon: {
     {
       name: "availableForms"
       req: false
+      short: "All available forms for this Pokémon"
       type: "`$ARRAY`"
     }
     {
       name: "fileSize"
       req: false
+      short: "Size of the model file in bytes"
       type: "`$INTEGER`"
     }
     {
       name: "form"
       req: false
+      short: "Current form of the Pokémon"
       type: "`$STRING`"
     }
     {
       name: "forms"
       req: false
+      short: "Available forms for this Pokémon"
       type: "`$ARRAY`"
     }
     {
       name: "generation"
       req: false
+      short: "Generation the Pokémon belongs to"
       type: "`$INTEGER`"
     }
     {
       name: "id"
       req: false
+      short: "Unique identifier for the Pokémon"
       type: "`$INTEGER`"
     }
     {
       name: "modelFormat"
       req: false
+      short: "Format of the 3D model"
       type: "`$STRING`"
     }
     {
       name: "modelUrl"
       req: false
+      short: "URL to the 3D model file (GLB/GLTF format)"
       type: "`$STRING`"
     }
     {
       name: "name"
       req: false
+      short: "Name of the Pokémon"
       type: "`$STRING`"
     }
     {
       name: "textureUrl"
       req: false
+      short: "URL to the texture file"
       type: "`$STRING`"
     }
     {
       name: "thumbnailUrl"
       req: false
+      short: "URL to the thumbnail image"
       type: "`$STRING`"
     }
     {
       name: "type"
       req: false
+      short: "Pokémon types"
       type: "`$ARRAY`"
     }
   ]

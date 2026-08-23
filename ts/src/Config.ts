@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'Pokemon3d',
+        slug: "pokemon3d",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -56,50 +67,62 @@ class Config {
       "fields": [
         {
           "name": "availableForms",
+          "short": "All available forms for this Pokémon",
           "type": "`$ARRAY`"
         },
         {
           "name": "fileSize",
+          "short": "Size of the model file in bytes",
           "type": "`$INTEGER`"
         },
         {
           "name": "form",
+          "short": "Current form of the Pokémon",
           "type": "`$STRING`"
         },
         {
           "name": "forms",
+          "short": "Available forms for this Pokémon",
           "type": "`$ARRAY`"
         },
         {
           "name": "generation",
+          "short": "Generation the Pokémon belongs to",
           "type": "`$INTEGER`"
         },
         {
           "name": "id",
+          "short": "Unique identifier for the Pokémon",
           "type": "`$INTEGER`"
         },
         {
           "name": "modelFormat",
+          "short": "Format of the 3D model",
           "type": "`$STRING`"
         },
         {
           "name": "modelUrl",
+          "short": "URL to the 3D model file (GLB/GLTF format)",
           "type": "`$STRING`"
         },
         {
           "name": "name",
+          "short": "Name of the Pokémon",
           "type": "`$STRING`"
         },
         {
           "name": "textureUrl",
+          "short": "URL to the texture file",
           "type": "`$STRING`"
         },
         {
           "name": "thumbnailUrl",
+          "short": "URL to the thumbnail image",
           "type": "`$STRING`"
         },
         {
           "name": "type",
+          "short": "Pokémon types",
           "type": "`$ARRAY`"
         }
       ],
