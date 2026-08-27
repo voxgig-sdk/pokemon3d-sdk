@@ -28,6 +28,7 @@ module Pokemon3dConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
