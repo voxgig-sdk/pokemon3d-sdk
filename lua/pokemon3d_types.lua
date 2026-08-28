@@ -22,20 +22,11 @@
 
 ---@class PokemonLoadMatch
 ---@field id string
+---@field form? string
 
 ---@class PokemonListMatch
----@field availableForms? table
----@field fileSize? number
----@field form? string
----@field forms? table
----@field generation? number
----@field id? number
----@field modelFormat? string
----@field modelUrl? string
----@field name? string
----@field textureUrl? string
----@field thumbnailUrl? string
----@field type? table
+---@field limit? number
+---@field offset? number
 
 local M = {}
 

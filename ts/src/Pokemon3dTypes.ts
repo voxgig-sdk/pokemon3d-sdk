@@ -22,20 +22,11 @@ export interface Pokemon {
 
 export interface PokemonLoadMatch {
   id: string
+  form?: string
 }
 
 export interface PokemonListMatch {
-  availableForms?: any[]
-  fileSize?: number
-  form?: string
-  forms?: any[]
-  generation?: number
-  id?: number
-  modelFormat?: string
-  modelUrl?: string
-  name?: string
-  textureUrl?: string
-  thumbnailUrl?: string
-  type?: any[]
+  limit?: number
+  offset?: number
 }
 

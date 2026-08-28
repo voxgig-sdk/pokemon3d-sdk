@@ -31,20 +31,14 @@ class Pokemon(TypedDict, total=False):
     type: list
 
 
-class PokemonLoadMatch(TypedDict):
+class PokemonLoadMatchRequired(TypedDict):
     id: str
 
 
-class PokemonListMatch(TypedDict, total=False):
-    availableForms: list
-    fileSize: int
+class PokemonLoadMatch(PokemonLoadMatchRequired, total=False):
     form: str
-    forms: list
-    generation: int
-    id: int
-    modelFormat: str
-    modelUrl: str
-    name: str
-    textureUrl: str
-    thumbnailUrl: str
-    type: list
+
+
+class PokemonListMatch(TypedDict, total=False):
+    limit: int
+    offset: int

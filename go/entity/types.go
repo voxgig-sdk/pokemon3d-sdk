@@ -31,22 +31,13 @@ type Pokemon struct {
 // PokemonLoadMatch is the typed request payload for Pokemon.LoadTyped.
 type PokemonLoadMatch struct {
 	Id string `json:"id"`
+	Form *string `json:"form,omitempty"`
 }
 
 // PokemonListMatch is the typed request payload for Pokemon.ListTyped.
 type PokemonListMatch struct {
-	AvailableForms *[]any `json:"availableForms,omitempty"`
-	FileSize *int `json:"fileSize,omitempty"`
-	Form *string `json:"form,omitempty"`
-	Forms *[]any `json:"forms,omitempty"`
-	Generation *int `json:"generation,omitempty"`
-	Id *int `json:"id,omitempty"`
-	ModelFormat *string `json:"modelFormat,omitempty"`
-	ModelUrl *string `json:"modelUrl,omitempty"`
-	Name *string `json:"name,omitempty"`
-	TextureUrl *string `json:"textureUrl,omitempty"`
-	ThumbnailUrl *string `json:"thumbnailUrl,omitempty"`
-	Type *[]any `json:"type,omitempty"`
+	Limit *int `json:"limit,omitempty"`
+	Offset *int `json:"offset,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

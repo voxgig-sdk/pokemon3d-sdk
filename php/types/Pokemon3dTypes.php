@@ -33,22 +33,13 @@ class Pokemon
 class PokemonLoadMatch
 {
     public string $id;
+    public ?string $form = null;
 }
 
 /** Request payload for Pokemon#list. */
 class PokemonListMatch
 {
-    public ?array $availableForms = null;
-    public ?int $fileSize = null;
-    public ?string $form = null;
-    public ?array $forms = null;
-    public ?int $generation = null;
-    public ?int $id = null;
-    public ?string $modelFormat = null;
-    public ?string $modelUrl = null;
-    public ?string $name = null;
-    public ?string $textureUrl = null;
-    public ?string $thumbnailUrl = null;
-    public ?array $type = null;
+    public ?int $limit = null;
+    public ?int $offset = null;
 }
 
