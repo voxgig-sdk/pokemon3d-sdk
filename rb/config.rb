@@ -79,6 +79,7 @@ module Pokemon3dConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "uri",
               "name" => "modelUrl",
               "short" => "URL to the 3D model file (GLB/GLTF format)",
               "type" => "`$STRING`",
@@ -89,11 +90,13 @@ module Pokemon3dConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "uri",
               "name" => "textureUrl",
               "short" => "URL to the texture file",
               "type" => "`$STRING`",
             },
             {
+              "format" => "uri",
               "name" => "thumbnailUrl",
               "short" => "URL to the thumbnail image",
               "type" => "`$STRING`",
@@ -104,6 +107,10 @@ module Pokemon3dConfig
               "type" => "`$ARRAY`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "pokemon",
           "op" => {
             "list" => {
@@ -132,8 +139,10 @@ module Pokemon3dConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/pokemons",
-                  "parts" => [
-                    "pokemons",
+                  "segments" => [
+                    {
+                      "lit" => "pokemons",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -145,6 +154,9 @@ module Pokemon3dConfig
                     "req" => "`reqdata`",
                     "res" => "`body.results`",
                   },
+                  "parts" => [
+                    "pokemons",
+                  ],
                 },
               ],
             },
@@ -175,9 +187,13 @@ module Pokemon3dConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/pokemons/{id}",
-                  "parts" => [
-                    "pokemons",
-                    "{id}",
+                  "segments" => [
+                    {
+                      "lit" => "pokemons",
+                    },
+                    {
+                      "var" => "id",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -189,6 +205,10 @@ module Pokemon3dConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "pokemons",
+                    "{id}",
+                  ],
                 },
               ],
             },

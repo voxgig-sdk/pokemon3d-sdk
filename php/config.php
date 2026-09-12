@@ -93,6 +93,7 @@ class Pokemon3dConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'uri',
               'name' => 'modelUrl',
               'short' => 'URL to the 3D model file (GLB/GLTF format)',
               'type' => '`$STRING`',
@@ -103,11 +104,13 @@ class Pokemon3dConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'uri',
               'name' => 'textureUrl',
               'short' => 'URL to the texture file',
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'uri',
               'name' => 'thumbnailUrl',
               'short' => 'URL to the thumbnail image',
               'type' => '`$STRING`',
@@ -117,6 +120,10 @@ class Pokemon3dConfig
               'short' => 'Pokémon types',
               'type' => '`$ARRAY`',
             ],
+          ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
           ],
           'name' => 'pokemon',
           'op' => [
@@ -146,8 +153,10 @@ class Pokemon3dConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/pokemons',
-                  'parts' => [
-                    'pokemons',
+                  'segments' => [
+                    [
+                      'lit' => 'pokemons',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -158,6 +167,9 @@ class Pokemon3dConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.results`',
+                  ],
+                  'parts' => [
+                    'pokemons',
                   ],
                 ],
               ],
@@ -189,9 +201,13 @@ class Pokemon3dConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/pokemons/{id}',
-                  'parts' => [
-                    'pokemons',
-                    '{id}',
+                  'segments' => [
+                    [
+                      'lit' => 'pokemons',
+                    ],
+                    [
+                      'var' => 'id',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -202,6 +218,10 @@ class Pokemon3dConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'pokemons',
+                    '{id}',
                   ],
                 ],
               ],

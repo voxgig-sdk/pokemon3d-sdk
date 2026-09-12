@@ -1,6 +1,14 @@
 # Pokemon3d SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -88,6 +96,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uri",
             "name": "modelUrl",
             "short": "URL to the 3D model file (GLB/GLTF format)",
             "type": "`$STRING`",
@@ -98,11 +107,13 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uri",
             "name": "textureUrl",
             "short": "URL to the texture file",
             "type": "`$STRING`",
           },
           {
+            "format": "uri",
             "name": "thumbnailUrl",
             "short": "URL to the thumbnail image",
             "type": "`$STRING`",
@@ -113,6 +124,10 @@ def make_config():
             "type": "`$ARRAY`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "pokemon",
         "op": {
           "list": {
@@ -141,8 +156,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/pokemons",
-                "parts": [
-                  "pokemons",
+                "segments": [
+                  {
+                    "lit": "pokemons",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -154,6 +171,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.results`",
                 },
+                "parts": [
+                  "pokemons",
+                ],
               },
             ],
           },
@@ -184,9 +204,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/pokemons/{id}",
-                "parts": [
-                  "pokemons",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "pokemons",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -198,6 +222,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "pokemons",
+                  "{id}",
+                ],
               },
             ],
           },

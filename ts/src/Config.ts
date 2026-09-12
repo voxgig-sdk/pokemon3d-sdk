@@ -10,6 +10,17 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
+// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
+// the model's active plugin groups. A feature that takes a `plugins` option
+// (secrets over sekreto) reads its own entry; a feature with no plugins has
+// none. Named imports above make each definition statically reachable, so
+// an SDK carries exactly the plugin modules its model selects — the same
+// leanness the old side-effect registry imports bought, without a registry.
+const FEATURE_PLUGINS: Record<string, any[]> = {
+  
+}
+
+
 class Config {
 
   makeFeature(this: any, fn: string) {
@@ -102,6 +113,7 @@ class Config {
           "type": "`$STRING`"
         },
         {
+          "format": "uri",
           "name": "modelUrl",
           "short": "URL to the 3D model file (GLB/GLTF format)",
           "type": "`$STRING`"
@@ -112,11 +124,13 @@ class Config {
           "type": "`$STRING`"
         },
         {
+          "format": "uri",
           "name": "textureUrl",
           "short": "URL to the texture file",
           "type": "`$STRING`"
         },
         {
+          "format": "uri",
           "name": "thumbnailUrl",
           "short": "URL to the thumbnail image",
           "type": "`$STRING`"
@@ -127,6 +141,10 @@ class Config {
           "type": "`$ARRAY`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "pokemon",
       "op": {
         "list": {
@@ -155,8 +173,10 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/pokemons",
-              "parts": [
-                "pokemons"
+              "segments": [
+                {
+                  "lit": "pokemons"
+                }
               ],
               "select": {
                 "exist": [
@@ -167,7 +187,10 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.results`"
-              }
+              },
+              "parts": [
+                "pokemons"
+              ]
             }
           ]
         },
@@ -198,9 +221,13 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/pokemons/{id}",
-              "parts": [
-                "pokemons",
-                "{id}"
+              "segments": [
+                {
+                  "lit": "pokemons"
+                },
+                {
+                  "var": "id"
+                }
               ],
               "select": {
                 "exist": [
@@ -211,7 +238,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "pokemons",
+                "{id}"
+              ]
             }
           ]
         }
@@ -227,6 +258,7 @@ class Config {
 const config = new Config()
 
 export {
-  config
+  config,
+  FEATURE_PLUGINS,
 }
 

@@ -71,6 +71,7 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "modelUrl",
 						"short": "URL to the 3D model file (GLB/GLTF format)",
 						"type": "`$STRING`",
@@ -81,11 +82,13 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "textureUrl",
 						"short": "URL to the texture file",
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "thumbnailUrl",
 						"short": "URL to the thumbnail image",
 						"type": "`$STRING`",
@@ -95,6 +98,10 @@ func MakeConfig() map[string]any {
 						"short": "Pokémon types",
 						"type": "`$ARRAY`",
 					},
+				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
 				},
 				"name": "pokemon",
 				"op": map[string]any{
@@ -124,8 +131,10 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/pokemons",
-								"parts": []any{
-									"pokemons",
+								"segments": []any{
+									map[string]any{
+										"lit": "pokemons",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -136,6 +145,9 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.results`",
+								},
+								"parts": []any{
+									"pokemons",
 								},
 							},
 						},
@@ -167,9 +179,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/pokemons/{id}",
-								"parts": []any{
-									"pokemons",
-									"{id}",
+								"segments": []any{
+									map[string]any{
+										"lit": "pokemons",
+									},
+									map[string]any{
+										"var": "id",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -181,6 +197,10 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
+								"parts": []any{
+									"pokemons",
+									"{id}",
+								},
 							},
 						},
 					},
@@ -191,6 +211,17 @@ func MakeConfig() map[string]any {
 			},
 		},
 	}
+}
+
+// The plugin definitions the model selected per feature, as []any so a
+// feature package can consume them without core naming its types. Empty
+// when no active feature declares active plugin groups for this target.
+var featurePlugins = map[string][]any{
+}
+
+// FeaturePlugins is the definitions list for one feature's chain.
+func FeaturePlugins(name string) []any {
+	return featurePlugins[name]
 }
 
 var (
