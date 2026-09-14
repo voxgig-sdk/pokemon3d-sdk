@@ -105,7 +105,7 @@ local results, err = client:Pokemon():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/pokemon3d` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pokemon3d-sdk/releases) |
+| TypeScript | `@voxgig-sdk/pokemon3d-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pokemon3d-sdk/releases) |
 | Python | `voxgig-sdk-pokemon3d` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pokemon3d-sdk/releases) |
 | PHP | `voxgig-sdk/pokemon3d` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pokemon3d-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/pokemon3d-sdk/go` | `go get github.com/voxgig-sdk/pokemon3d-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Pokemon():list()
 ### TypeScript
 
 ```ts
-import { Pokemon3dSDK } from '@voxgig-sdk/pokemon3d'
+import { Pokemon3dSDK } from '@voxgig-sdk/pokemon3d-sdk'
 
 const client = new Pokemon3dSDK()
 

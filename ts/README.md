@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { Pokemon3dSDK } from '@voxgig-sdk/pokemon3d'
+import { Pokemon3dSDK } from '@voxgig-sdk/pokemon3d-sdk'
 
 const client = new Pokemon3dSDK()
 ```
@@ -447,7 +447,7 @@ pokemon3d/
 Import the SDK from the package root:
 
 ```ts
-import { Pokemon3dSDK } from '@voxgig-sdk/pokemon3d'
+import { Pokemon3dSDK } from '@voxgig-sdk/pokemon3d-sdk'
 ```
 
 ### Entity state
