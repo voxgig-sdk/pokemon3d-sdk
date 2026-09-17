@@ -105,12 +105,12 @@ local results, err = client:Pokemon():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/pokemon3d-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pokemon3d-sdk/releases) |
-| Python | `voxgig-sdk-pokemon3d` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pokemon3d-sdk/releases) |
-| PHP | `voxgig-sdk/pokemon3d` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pokemon3d-sdk/releases) |
+| TypeScript | `@voxgig-sdk/pokemon3d-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pokemon3d-sdk/tags) |
+| Python | `voxgig-sdk-pokemon3d` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pokemon3d-sdk/tags) |
+| PHP | `voxgig-sdk/pokemon3d` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pokemon3d-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/pokemon3d-sdk/go` | `go get github.com/voxgig-sdk/pokemon3d-sdk/go@latest` |
-| Ruby | `voxgig-sdk-pokemon3d` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pokemon3d-sdk/releases) |
-| Lua | `voxgig-sdk-pokemon3d` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pokemon3d-sdk/releases) |
+| Ruby | `voxgig-sdk-pokemon3d` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pokemon3d-sdk/tags) |
+| Lua | `voxgig-sdk-pokemon3d` | publish pending — [install from git tag](https://github.com/voxgig-sdk/pokemon3d-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/pokemon3d-sdk/go-cli` | `go install github.com/voxgig-sdk/pokemon3d-sdk/go-cli/cmd/pokemon3d@latest` |
 | Go MCP server | `github.com/voxgig-sdk/pokemon3d-sdk/go-mcp` | `go get github.com/voxgig-sdk/pokemon3d-sdk/go-mcp@latest` |
 
