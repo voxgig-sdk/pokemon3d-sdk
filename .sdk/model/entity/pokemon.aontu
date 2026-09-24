@@ -1,0 +1,209 @@
+# Entity: pokemon
+
+main: kit: entity: pokemon: {
+
+  alias: field: {}
+
+  fields: {
+    availableForms: {
+      h: "Available Forms"
+      n: "availableForms"
+      r: false
+      sh: "All available forms for this Pokémon"
+      t: "`$ARRAY`"
+    }
+    fileSize: {
+      h: "File Size"
+      n: "fileSize"
+      r: false
+      sh: "Size of the model file in bytes"
+      t: "`$INTEGER`"
+    }
+    form: {
+      h: "Form"
+      n: "form"
+      r: false
+      sh: "Current form of the Pokémon"
+      t: "`$STRING`"
+    }
+    forms: {
+      h: "Forms"
+      n: "forms"
+      r: false
+      sh: "Available forms for this Pokémon"
+      t: "`$ARRAY`"
+    }
+    generation: {
+      h: "Generation"
+      n: "generation"
+      r: false
+      sh: "Generation the Pokémon belongs to"
+      t: "`$INTEGER`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Unique identifier for the Pokémon"
+      t: "`$INTEGER`"
+    }
+    modelFormat: {
+      h: "Model Format"
+      n: "modelFormat"
+      r: false
+      sh: "Format of the 3D model"
+      t: "`$STRING`"
+    }
+    modelUrl: {
+      fo: "uri"
+      h: "Model Url"
+      n: "modelUrl"
+      r: false
+      sh: "URL to the 3D model file (GLB/GLTF format)"
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "Name of the Pokémon"
+      t: "`$STRING`"
+    }
+    textureUrl: {
+      fo: "uri"
+      h: "Texture Url"
+      n: "textureUrl"
+      r: false
+      sh: "URL to the texture file"
+      t: "`$STRING`"
+    }
+    thumbnailUrl: {
+      fo: "uri"
+      h: "Thumbnail Url"
+      n: "thumbnailUrl"
+      r: false
+      sh: "URL to the thumbnail image"
+      t: "`$STRING`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: false
+      sh: "Pokémon types"
+      t: "`$ARRAY`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "pokemon"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /pokemons"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: 100
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 0
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/pokemons"
+          q: {
+            exist: [
+              "limit"
+              "offset"
+            ]
+          }
+          s: [
+            {
+              lit: "pokemons"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.results`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /pokemons/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "form"
+                or: "form"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/pokemons/{id}"
+          q: {
+            exist: [
+              "form"
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "pokemons"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

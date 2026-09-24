@@ -43,7 +43,7 @@ local pokemons, err = client:Pokemon():list()
 if err then error(err) end
 
 for _, item in ipairs(pokemons) do
-  print(item["id"], item["form"])
+  print(item["id"])
 end
 ```
 

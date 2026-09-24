@@ -24,101 +24,179 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "pokemon": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "availableForms",
-              "req": false,
-              "short": "All available forms for this Pokémon",
-              "type": "`$ARRAY`"
+          "fields": {
+            "availableForms": {
+              "a": true,
+              "h": "Available Forms",
+              "n": "availableForms",
+              "r": false,
+              "sh": "All available forms for this Pokémon",
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "fileSize",
-              "req": false,
-              "short": "Size of the model file in bytes",
-              "type": "`$INTEGER`"
+            "fileSize": {
+              "a": true,
+              "h": "File Size",
+              "n": "fileSize",
+              "r": false,
+              "sh": "Size of the model file in bytes",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "form",
-              "req": false,
-              "short": "Current form of the Pokémon",
-              "type": "`$STRING`"
+            "form": {
+              "a": true,
+              "h": "Form",
+              "n": "form",
+              "r": false,
+              "sh": "Current form of the Pokémon",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "forms",
-              "req": false,
-              "short": "Available forms for this Pokémon",
-              "type": "`$ARRAY`"
+            "forms": {
+              "a": true,
+              "h": "Forms",
+              "n": "forms",
+              "r": false,
+              "sh": "Available forms for this Pokémon",
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "generation",
-              "req": false,
-              "short": "Generation the Pokémon belongs to",
-              "type": "`$INTEGER`"
+            "generation": {
+              "a": true,
+              "h": "Generation",
+              "n": "generation",
+              "r": false,
+              "sh": "Generation the Pokémon belongs to",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "short": "Unique identifier for the Pokémon",
-              "type": "`$INTEGER`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "sh": "Unique identifier for the Pokémon",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "modelFormat",
-              "req": false,
-              "short": "Format of the 3D model",
-              "type": "`$STRING`"
+            "modelFormat": {
+              "a": true,
+              "h": "Model Format",
+              "n": "modelFormat",
+              "r": false,
+              "sh": "Format of the 3D model",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "uri",
-              "name": "modelUrl",
-              "req": false,
-              "short": "URL to the 3D model file (GLB/GLTF format)",
-              "type": "`$STRING`"
+            "modelUrl": {
+              "a": true,
+              "fo": "uri",
+              "h": "Model Url",
+              "n": "modelUrl",
+              "r": false,
+              "sh": "URL to the 3D model file (GLB/GLTF format)",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "name",
-              "req": false,
-              "short": "Name of the Pokémon",
-              "type": "`$STRING`"
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": false,
+              "sh": "Name of the Pokémon",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "uri",
-              "name": "textureUrl",
-              "req": false,
-              "short": "URL to the texture file",
-              "type": "`$STRING`"
+            "textureUrl": {
+              "a": true,
+              "fo": "uri",
+              "h": "Texture Url",
+              "n": "textureUrl",
+              "r": false,
+              "sh": "URL to the texture file",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "uri",
-              "name": "thumbnailUrl",
-              "req": false,
-              "short": "URL to the thumbnail image",
-              "type": "`$STRING`"
+            "thumbnailUrl": {
+              "a": true,
+              "fo": "uri",
+              "h": "Thumbnail Url",
+              "n": "thumbnailUrl",
+              "r": false,
+              "sh": "URL to the thumbnail image",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "type",
-              "req": false,
-              "short": "Pokémon types",
-              "type": "`$ARRAY`"
+            "type": {
+              "a": true,
+              "h": "Type",
+              "n": "type",
+              "r": false,
+              "sh": "Pokémon types",
+              "t": "`$ARRAY`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -130,50 +208,50 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /pokemons",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "example": 100,
-                        "kind": "query",
-                        "name": "limit",
-                        "orig": "limit",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 100,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "example": 0,
-                        "kind": "query",
-                        "name": "offset",
-                        "orig": "offset",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 0,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /pokemons",
-                    "json": "{\"operationId\":\"getAllPokemons\",\"parameters\":[{\"description\":\"Limit the number of results returned\",\"in\":\"query\",\"name\":\"limit\",\"required\":false,\"schema\":{\"default\":100,\"type\":\"integer\"}},{\"description\":\"Offset for pagination\",\"in\":\"query\",\"name\":\"offset\",\"required\":false,\"schema\":{\"default\":0,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"count\":{\"description\":\"Total number of Pokémon available\",\"type\":\"integer\"},\"results\":{\"items\":{\"properties\":{\"forms\":{\"description\":\"Available forms for this Pokémon\",\"example\":[\"regular\",\"shiny\"],\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"id\":{\"description\":\"Unique identifier for the Pokémon\",\"example\":25,\"type\":\"integer\"},\"modelUrl\":{\"description\":\"URL to the 3D model file\",\"example\":\"https://pokemon3d.io/models/pikachu.glb\",\"format\":\"uri\",\"type\":\"string\"},\"name\":{\"description\":\"Name of the Pokémon\",\"example\":\"pikachu\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful response with list of Pokémon\"},\"400\":{\"description\":\"Bad request\"},\"500\":{\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/pokemons",
-                  "segments": [
-                    {
-                      "lit": "pokemons"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/pokemons",
+                  "q": {
                     "exist": [
                       "limit",
                       "offset"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "pokemons"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.results`"
                   }
@@ -185,39 +263,45 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /pokemons/{id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "id",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "param",
+                        "n": "id",
+                        "or": "id",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ],
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "form",
-                        "orig": "form",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "form",
+                        "or": "form",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /pokemons/{id}",
-                    "json": "{\"operationId\":\"getPokemonById\",\"parameters\":[{\"description\":\"Pokémon ID or name (e.g., 25 or 'pikachu')\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Specific form of the Pokémon (e.g., 'shiny', 'alolan', 'mega')\",\"in\":\"query\",\"name\":\"form\",\"required\":false,\"schema\":{\"enum\":[\"regular\",\"shiny\",\"alolan\",\"galarian\",\"mega\",\"gigantamax\"],\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"availableForms\":{\"description\":\"All available forms for this Pokémon\",\"example\":[\"regular\",\"shiny\",\"alolan\"],\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"fileSize\":{\"description\":\"Size of the model file in bytes\",\"example\":524288,\"type\":\"integer\"},\"form\":{\"description\":\"Current form of the Pokémon\",\"example\":\"regular\",\"type\":\"string\"},\"generation\":{\"description\":\"Generation the Pokémon belongs to\",\"example\":1,\"type\":\"integer\"},\"id\":{\"description\":\"Unique identifier for the Pokémon\",\"example\":25,\"type\":\"integer\"},\"modelFormat\":{\"description\":\"Format of the 3D model\",\"example\":\"glb\",\"type\":\"string\"},\"modelUrl\":{\"description\":\"URL to the 3D model file (GLB/GLTF format)\",\"example\":\"https://pokemon3d.io/models/pikachu.glb\",\"format\":\"uri\",\"type\":\"string\"},\"name\":{\"description\":\"Name of the Pokémon\",\"example\":\"pikachu\",\"type\":\"string\"},\"textureUrl\":{\"description\":\"URL to the texture file\",\"example\":\"https://pokemon3d.io/textures/pikachu.png\",\"format\":\"uri\",\"type\":\"string\"},\"thumbnailUrl\":{\"description\":\"URL to the thumbnail image\",\"example\":\"https://pokemon3d.io/thumbnails/pikachu.png\",\"format\":\"uri\",\"type\":\"string\"},\"type\":{\"description\":\"Pokémon types\",\"example\":[\"electric\"],\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful response with Pokémon details\"},\"400\":{\"description\":\"Bad request\"},\"404\":{\"description\":\"Pokémon not found\"},\"500\":{\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/pokemons/{id}",
+                  "q": {
+                    "exist": [
+                      "form",
+                      "id"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/pokemons/{id}",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "pokemons"
                     },
@@ -225,13 +309,7 @@
                       "var": "id"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "form",
-                      "id"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -660,13 +738,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -676,19 +754,19 @@
               ]
             },
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "pokemon_ref01",
                 "srcdatavar": "pokemon_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {
+              "m": {
                 "id": "pokemon01"
               },
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {

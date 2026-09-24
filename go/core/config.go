@@ -91,66 +91,78 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "availableForms",
-						"short": "All available forms for this Pokémon",
+						"title": "Available Forms",
 						"type": "`$ARRAY`",
+						"short": "All available forms for this Pokémon",
 					},
 					map[string]any{
 						"name": "fileSize",
-						"short": "Size of the model file in bytes",
+						"title": "File Size",
 						"type": "`$INTEGER`",
+						"short": "Size of the model file in bytes",
 					},
 					map[string]any{
 						"name": "form",
-						"short": "Current form of the Pokémon",
+						"title": "Form",
 						"type": "`$STRING`",
+						"short": "Current form of the Pokémon",
 					},
 					map[string]any{
 						"name": "forms",
-						"short": "Available forms for this Pokémon",
+						"title": "Forms",
 						"type": "`$ARRAY`",
+						"short": "Available forms for this Pokémon",
 					},
 					map[string]any{
 						"name": "generation",
-						"short": "Generation the Pokémon belongs to",
+						"title": "Generation",
 						"type": "`$INTEGER`",
+						"short": "Generation the Pokémon belongs to",
 					},
 					map[string]any{
 						"name": "id",
-						"short": "Unique identifier for the Pokémon",
+						"title": "Id",
 						"type": "`$INTEGER`",
+						"short": "Unique identifier for the Pokémon",
 					},
 					map[string]any{
 						"name": "modelFormat",
-						"short": "Format of the 3D model",
+						"title": "Model Format",
 						"type": "`$STRING`",
+						"short": "Format of the 3D model",
 					},
 					map[string]any{
-						"format": "uri",
 						"name": "modelUrl",
-						"short": "URL to the 3D model file (GLB/GLTF format)",
+						"title": "Model Url",
 						"type": "`$STRING`",
+						"short": "URL to the 3D model file (GLB/GLTF format)",
+						"format": "uri",
 					},
 					map[string]any{
 						"name": "name",
+						"title": "Name",
+						"type": "`$STRING`",
 						"short": "Name of the Pokémon",
-						"type": "`$STRING`",
 					},
 					map[string]any{
-						"format": "uri",
 						"name": "textureUrl",
-						"short": "URL to the texture file",
+						"title": "Texture Url",
 						"type": "`$STRING`",
+						"short": "URL to the texture file",
+						"format": "uri",
 					},
 					map[string]any{
-						"format": "uri",
 						"name": "thumbnailUrl",
-						"short": "URL to the thumbnail image",
+						"title": "Thumbnail Url",
 						"type": "`$STRING`",
+						"short": "URL to the thumbnail image",
+						"format": "uri",
 					},
 					map[string]any{
 						"name": "type",
-						"short": "Pokémon types",
+						"title": "Type",
 						"type": "`$ARRAY`",
+						"short": "Pokémon types",
 					},
 				},
 				"id": map[string]any{
@@ -164,24 +176,6 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": 100,
-											"kind": "query",
-											"name": "limit",
-											"orig": "limit",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": 0,
-											"kind": "query",
-											"name": "offset",
-											"orig": "offset",
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/pokemons",
@@ -190,18 +184,37 @@ func MakeConfig() map[string]any {
 										"lit": "pokemons",
 									},
 								},
+								"parts": []any{
+									"pokemons",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.results`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "limit",
+											"orig": "limit",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 100,
+										},
+										map[string]any{
+											"name": "offset",
+											"orig": "offset",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 0,
+										},
+									},
+								},
 								"select": map[string]any{
 									"exist": []any{
 										"limit",
 										"offset",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.results`",
-								},
-								"parts": []any{
-									"pokemons",
 								},
 							},
 						},
@@ -211,25 +224,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"kind": "param",
-											"name": "id",
-											"orig": "id",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "form",
-											"orig": "form",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/pokemons/{id}",
@@ -241,19 +235,39 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
+								"parts": []any{
+									"pokemons",
+									"{id}",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+										},
+									},
+									"query": []any{
+										map[string]any{
+											"name": "form",
+											"orig": "form",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+									},
+								},
 								"select": map[string]any{
 									"exist": []any{
 										"form",
 										"id",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"pokemons",
-									"{id}",
 								},
 							},
 						},

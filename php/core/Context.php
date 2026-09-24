@@ -55,7 +55,11 @@ class Pokemon3dContext
             if (array_key_exists('actor', $ctrl_raw)) {
                 $this->ctrl->actor = $ctrl_raw['actor'];
             }
-        } elseif ($basectx !== null && $basectx->ctrl !== null) {
+            if (isset($ctrl_raw['paging']) && is_array($ctrl_raw['paging'])) {
+                $this->ctrl->paging = $ctrl_raw['paging'];
+            }
+        } elseif ($basectx !== null && $basectx->ctrl !== null
+            && Pokemon3dHelpers::get_ctx_prop($ctxmap, "opname") === null) {
             $this->ctrl = $basectx->ctrl;
         }
 

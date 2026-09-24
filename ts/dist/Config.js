@@ -11,19 +11,12 @@ const FEATURE_CLASS = {
     test: TestFeature_1.TestFeature,
     timeout: TimeoutFeature_1.TimeoutFeature,
 };
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS = {};
 exports.FEATURE_PLUGINS = FEATURE_PLUGINS;
 class Config {
     makeFeature(fn) {
         const fc = FEATURE_CLASS[fn];
         const fi = new fc();
-        // TODO: errors etc
         return fi;
     }
     // False for a feature added at runtime via options.extend (station's
@@ -114,66 +107,78 @@ class Config {
             "fields": [
                 {
                     "name": "availableForms",
-                    "short": "All available forms for this Pokémon",
-                    "type": "`$ARRAY`"
+                    "title": "Available Forms",
+                    "type": "`$ARRAY`",
+                    "short": "All available forms for this Pokémon"
                 },
                 {
                     "name": "fileSize",
-                    "short": "Size of the model file in bytes",
-                    "type": "`$INTEGER`"
+                    "title": "File Size",
+                    "type": "`$INTEGER`",
+                    "short": "Size of the model file in bytes"
                 },
                 {
                     "name": "form",
-                    "short": "Current form of the Pokémon",
-                    "type": "`$STRING`"
+                    "title": "Form",
+                    "type": "`$STRING`",
+                    "short": "Current form of the Pokémon"
                 },
                 {
                     "name": "forms",
-                    "short": "Available forms for this Pokémon",
-                    "type": "`$ARRAY`"
+                    "title": "Forms",
+                    "type": "`$ARRAY`",
+                    "short": "Available forms for this Pokémon"
                 },
                 {
                     "name": "generation",
-                    "short": "Generation the Pokémon belongs to",
-                    "type": "`$INTEGER`"
+                    "title": "Generation",
+                    "type": "`$INTEGER`",
+                    "short": "Generation the Pokémon belongs to"
                 },
                 {
                     "name": "id",
-                    "short": "Unique identifier for the Pokémon",
-                    "type": "`$INTEGER`"
+                    "title": "Id",
+                    "type": "`$INTEGER`",
+                    "short": "Unique identifier for the Pokémon"
                 },
                 {
                     "name": "modelFormat",
-                    "short": "Format of the 3D model",
-                    "type": "`$STRING`"
+                    "title": "Model Format",
+                    "type": "`$STRING`",
+                    "short": "Format of the 3D model"
                 },
                 {
-                    "format": "uri",
                     "name": "modelUrl",
+                    "title": "Model Url",
+                    "type": "`$STRING`",
                     "short": "URL to the 3D model file (GLB/GLTF format)",
-                    "type": "`$STRING`"
+                    "format": "uri"
                 },
                 {
                     "name": "name",
-                    "short": "Name of the Pokémon",
-                    "type": "`$STRING`"
+                    "title": "Name",
+                    "type": "`$STRING`",
+                    "short": "Name of the Pokémon"
                 },
                 {
-                    "format": "uri",
                     "name": "textureUrl",
+                    "title": "Texture Url",
+                    "type": "`$STRING`",
                     "short": "URL to the texture file",
-                    "type": "`$STRING`"
+                    "format": "uri"
                 },
                 {
-                    "format": "uri",
                     "name": "thumbnailUrl",
+                    "title": "Thumbnail Url",
+                    "type": "`$STRING`",
                     "short": "URL to the thumbnail image",
-                    "type": "`$STRING`"
+                    "format": "uri"
                 },
                 {
                     "name": "type",
-                    "short": "Pokémon types",
-                    "type": "`$ARRAY`"
+                    "title": "Type",
+                    "type": "`$ARRAY`",
+                    "short": "Pokémon types"
                 }
             ],
             "id": {
@@ -187,24 +192,6 @@ class Config {
                     "name": "list",
                     "points": [
                         {
-                            "args": {
-                                "query": [
-                                    {
-                                        "example": 100,
-                                        "kind": "query",
-                                        "name": "limit",
-                                        "orig": "limit",
-                                        "type": "`$INTEGER`"
-                                    },
-                                    {
-                                        "example": 0,
-                                        "kind": "query",
-                                        "name": "offset",
-                                        "orig": "offset",
-                                        "type": "`$INTEGER`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/pokemons",
@@ -213,19 +200,38 @@ class Config {
                                     "lit": "pokemons"
                                 }
                             ],
+                            "parts": [
+                                "pokemons"
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body.results`"
+                            },
+                            "args": {
+                                "query": [
+                                    {
+                                        "name": "limit",
+                                        "orig": "limit",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 100
+                                    },
+                                    {
+                                        "name": "offset",
+                                        "orig": "offset",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 0
+                                    }
+                                ]
+                            },
                             "select": {
                                 "exist": [
                                     "limit",
                                     "offset"
                                 ]
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body.results`"
-                            },
-                            "parts": [
-                                "pokemons"
-                            ]
+                            }
                         }
                     ]
                 },
@@ -234,25 +240,6 @@ class Config {
                     "name": "load",
                     "points": [
                         {
-                            "args": {
-                                "params": [
-                                    {
-                                        "kind": "param",
-                                        "name": "id",
-                                        "orig": "id",
-                                        "reqd": true,
-                                        "type": "`$STRING`"
-                                    }
-                                ],
-                                "query": [
-                                    {
-                                        "kind": "query",
-                                        "name": "form",
-                                        "orig": "form",
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/pokemons/{id}",
@@ -264,20 +251,40 @@ class Config {
                                     "var": "id"
                                 }
                             ],
+                            "parts": [
+                                "pokemons",
+                                "{id}"
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {
+                                "params": [
+                                    {
+                                        "name": "id",
+                                        "orig": "id",
+                                        "type": "`$STRING`",
+                                        "kind": "param",
+                                        "reqd": true
+                                    }
+                                ],
+                                "query": [
+                                    {
+                                        "name": "form",
+                                        "orig": "form",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    }
+                                ]
+                            },
                             "select": {
                                 "exist": [
                                     "form",
                                     "id"
                                 ]
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body`"
-                            },
-                            "parts": [
-                                "pokemons",
-                                "{id}"
-                            ]
+                            }
                         }
                     ]
                 }

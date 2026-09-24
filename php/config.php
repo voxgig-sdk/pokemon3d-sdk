@@ -113,66 +113,78 @@ class Pokemon3dConfig
           'fields' => [
             [
               'name' => 'availableForms',
-              'short' => 'All available forms for this Pokémon',
+              'title' => 'Available Forms',
               'type' => '`$ARRAY`',
+              'short' => 'All available forms for this Pokémon',
             ],
             [
               'name' => 'fileSize',
-              'short' => 'Size of the model file in bytes',
+              'title' => 'File Size',
               'type' => '`$INTEGER`',
+              'short' => 'Size of the model file in bytes',
             ],
             [
               'name' => 'form',
-              'short' => 'Current form of the Pokémon',
+              'title' => 'Form',
               'type' => '`$STRING`',
+              'short' => 'Current form of the Pokémon',
             ],
             [
               'name' => 'forms',
-              'short' => 'Available forms for this Pokémon',
+              'title' => 'Forms',
               'type' => '`$ARRAY`',
+              'short' => 'Available forms for this Pokémon',
             ],
             [
               'name' => 'generation',
-              'short' => 'Generation the Pokémon belongs to',
+              'title' => 'Generation',
               'type' => '`$INTEGER`',
+              'short' => 'Generation the Pokémon belongs to',
             ],
             [
               'name' => 'id',
-              'short' => 'Unique identifier for the Pokémon',
+              'title' => 'Id',
               'type' => '`$INTEGER`',
+              'short' => 'Unique identifier for the Pokémon',
             ],
             [
               'name' => 'modelFormat',
-              'short' => 'Format of the 3D model',
+              'title' => 'Model Format',
               'type' => '`$STRING`',
+              'short' => 'Format of the 3D model',
             ],
             [
-              'format' => 'uri',
               'name' => 'modelUrl',
-              'short' => 'URL to the 3D model file (GLB/GLTF format)',
+              'title' => 'Model Url',
               'type' => '`$STRING`',
+              'short' => 'URL to the 3D model file (GLB/GLTF format)',
+              'format' => 'uri',
             ],
             [
               'name' => 'name',
+              'title' => 'Name',
+              'type' => '`$STRING`',
               'short' => 'Name of the Pokémon',
-              'type' => '`$STRING`',
             ],
             [
-              'format' => 'uri',
               'name' => 'textureUrl',
-              'short' => 'URL to the texture file',
+              'title' => 'Texture Url',
               'type' => '`$STRING`',
+              'short' => 'URL to the texture file',
+              'format' => 'uri',
             ],
             [
-              'format' => 'uri',
               'name' => 'thumbnailUrl',
-              'short' => 'URL to the thumbnail image',
+              'title' => 'Thumbnail Url',
               'type' => '`$STRING`',
+              'short' => 'URL to the thumbnail image',
+              'format' => 'uri',
             ],
             [
               'name' => 'type',
-              'short' => 'Pokémon types',
+              'title' => 'Type',
               'type' => '`$ARRAY`',
+              'short' => 'Pokémon types',
             ],
           ],
           'id' => [
@@ -186,24 +198,6 @@ class Pokemon3dConfig
               'name' => 'list',
               'points' => [
                 [
-                  'args' => [
-                    'query' => [
-                      [
-                        'example' => 100,
-                        'kind' => 'query',
-                        'name' => 'limit',
-                        'orig' => 'limit',
-                        'type' => '`$INTEGER`',
-                      ],
-                      [
-                        'example' => 0,
-                        'kind' => 'query',
-                        'name' => 'offset',
-                        'orig' => 'offset',
-                        'type' => '`$INTEGER`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/pokemons',
@@ -212,18 +206,37 @@ class Pokemon3dConfig
                       'lit' => 'pokemons',
                     ],
                   ],
+                  'parts' => [
+                    'pokemons',
+                  ],
+                  'rename' => [],
+                  'transform' => [
+                    'req' => '`reqdata`',
+                    'res' => '`body.results`',
+                  ],
+                  'args' => [
+                    'query' => [
+                      [
+                        'name' => 'limit',
+                        'orig' => 'limit',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'query',
+                        'example' => 100,
+                      ],
+                      [
+                        'name' => 'offset',
+                        'orig' => 'offset',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'query',
+                        'example' => 0,
+                      ],
+                    ],
+                  ],
                   'select' => [
                     'exist' => [
                       'limit',
                       'offset',
                     ],
-                  ],
-                  'transform' => [
-                    'req' => '`reqdata`',
-                    'res' => '`body.results`',
-                  ],
-                  'parts' => [
-                    'pokemons',
                   ],
                 ],
               ],
@@ -233,25 +246,6 @@ class Pokemon3dConfig
               'name' => 'load',
               'points' => [
                 [
-                  'args' => [
-                    'params' => [
-                      [
-                        'kind' => 'param',
-                        'name' => 'id',
-                        'orig' => 'id',
-                        'reqd' => true,
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                    'query' => [
-                      [
-                        'kind' => 'query',
-                        'name' => 'form',
-                        'orig' => 'form',
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/pokemons/{id}',
@@ -263,19 +257,39 @@ class Pokemon3dConfig
                       'var' => 'id',
                     ],
                   ],
+                  'parts' => [
+                    'pokemons',
+                    '{id}',
+                  ],
+                  'rename' => [],
+                  'transform' => [
+                    'req' => '`reqdata`',
+                    'res' => '`body`',
+                  ],
+                  'args' => [
+                    'params' => [
+                      [
+                        'name' => 'id',
+                        'orig' => 'id',
+                        'type' => '`$STRING`',
+                        'kind' => 'param',
+                        'reqd' => true,
+                      ],
+                    ],
+                    'query' => [
+                      [
+                        'name' => 'form',
+                        'orig' => 'form',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                    ],
+                  ],
                   'select' => [
                     'exist' => [
                       'form',
                       'id',
                     ],
-                  ],
-                  'transform' => [
-                    'req' => '`reqdata`',
-                    'res' => '`body`',
-                  ],
-                  'parts' => [
-                    'pokemons',
-                    '{id}',
                   ],
                 ],
               ],

@@ -1,7 +1,7 @@
 // Typed models for the Pokemon3d SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,18 +14,6 @@ import (
 
 // Pokemon is the typed data model for the pokemon entity.
 type Pokemon struct {
-	AvailableForms *[]any `json:"availableForms,omitempty"`
-	FileSize *int `json:"fileSize,omitempty"`
-	Form *string `json:"form,omitempty"`
-	Forms *[]any `json:"forms,omitempty"`
-	Generation *int `json:"generation,omitempty"`
-	Id *int `json:"id,omitempty"`
-	ModelFormat *string `json:"modelFormat,omitempty"`
-	ModelUrl *string `json:"modelUrl,omitempty"`
-	Name *string `json:"name,omitempty"`
-	TextureUrl *string `json:"textureUrl,omitempty"`
-	ThumbnailUrl *string `json:"thumbnailUrl,omitempty"`
-	Type *[]any `json:"type,omitempty"`
 }
 
 // PokemonLoadMatch is the typed request payload for Pokemon.LoadTyped.

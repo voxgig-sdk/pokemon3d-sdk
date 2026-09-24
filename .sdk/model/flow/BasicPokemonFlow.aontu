@@ -1,0 +1,44 @@
+# BasicPokemonFlow
+
+main: kit: flow: BasicPokemonFlow:
+{
+  entity: "pokemon",
+  kind: "basic",
+  name: "BasicPokemonFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "pokemon_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "pokemon_ref01",
+        srcdatavar: "pokemon_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "pokemon01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-pokemon_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPokemonFlow"
+}
